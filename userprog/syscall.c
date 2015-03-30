@@ -12,15 +12,51 @@
 #include "userprog/process.h"
 
 static void syscall_handler (struct intr_frame *);
-struct lock file_lock; //lock for handing file sys
 
-//File structre
-struct file_struct
+/*
+ * unmapped some file
+ */
+void
+munmap (int mapping)
 {
-	struct file* file; //file pointer
-	int file_desc;     //file discriptor
-	struct list_elem elem;
-};
+   process_remove_mmap(mapping);
+}
+//struct lock file_lock; //lock for handing file sys
+/*
+ * Memory mapping handler:
+ */
+int
+mmap (int fd, void *addr)
+{
+    struct file *old_file = process_get_file (fd);
+    if (!old_file || !is_user_vaddr(addr)|| addr <USER_VADDR_BOTTOM ||
+	((uint32_t)addr %PGSIZE) != 0)
+    {
+	return ERROR;
+    } 
+    struct file *file = file_reopen(old_file);
+    if (!file || file_length (old_file) == 0)
+    {
+	return ERROR;
+    }
+    thread_current () ->mapid++;
+    int32_t ofs= 0;
+    uint32_t read_bytes = file_length (file);
+    while (read_bytes > 0)
+    {
+	uint32_t page_read_bytes = read_bytes <PGSIZE ?read_bytes: PGSIZE;
+        uint32_t page_zero_bytes = PGSIZE - page_read_bytes;
+        if (!add_mmap_to_page_table(file,ofs,addr,page_read_bytes,page_zero_bytes))
+        {
+		munmap (thread_current() ->mapid);
+		return ERROR;
+         }
+         read_bytes -= page_read_bytes;
+	 ofs += page_read_bytes;
+    }
+    return thread_current ()->mapid;
+
+}
 
 void
 validate_page (const void *addr)
@@ -412,7 +448,18 @@ syscall_handler (struct intr_frame *f UNUSED)
 		 	sys_close(arg[0]);
 		 	break;
 		 } 
-
+		case SYS_MMAP:
+		{
+		       get_arguments_from_stack (f, &arg[0], 2);
+			f->eax = mmap(arg[0], (void *)arg[1]);
+			break;
+		}
+		case SYS_MUNMAP:
+		{
+		      get_arguments_from_stack (f, &arg[0],1);
+		      munmap (arg[0]);
+		      break;
+		}
 	}
   
 }

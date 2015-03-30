@@ -1,0 +1,62 @@
+Copying tests/vm/page-merge-par to scratch partition...
+Copying tests/vm/child-sort to scratch partition...
+qemu -hda /tmp/w3xFvqEIUG.dsk -m 4 -net none -nographic -monitor null
+PiLo hda1
+Loading...........
+Kernel command line: -q -f extract run page-merge-par
+Pintos booting with 4,088 kB RAM...
+382 pages available in kernel pool.
+382 pages available in user pool.
+Calibrating timer...  52,377,600 loops/s.
+hda: 13,104 sectors (6 MB), model "QM00001", serial "QEMU HARDDISK"
+hda1: 186 sectors (93 kB), Pintos OS kernel (20)
+hda2: 4,096 sectors (2 MB), Pintos file system (21)
+hda3: 193 sectors (96 kB), Pintos scratch (22)
+hda4: 8,192 sectors (4 MB), Pintos swap (23)
+filesys: using hda2
+scratch: using hda3
+swap: using hda4
+Formatting file system...done.
+Boot complete.
+Extracting ustar archive from scratch device into file system...
+Putting 'page-merge-par' into the file system...
+Putting 'child-sort' into the file system...
+Erasing ustar archive...
+Executing 'page-merge-par':
+(page-merge-par) begin
+(page-merge-par) init
+(page-merge-par) sort chunk 0
+(page-merge-par) sort chunk 1
+(child-sort) open "buf0": FAILED
+child-sort: exit(1)
+(page-merge-par) sort chunk 2
+(child-sort) open "buf1": FAILED
+child-sort: exit(1)
+(page-merge-par) sort chunk 3
+(child-sort) open "buf2": FAILED
+child-sort: exit(1)
+(page-merge-par) sort chunk 4
+(child-sort) open "buf3": FAILED
+child-sort: exit(1)
+(page-merge-par) sort chunk 5
+(child-sort) open "buf4": FAILED
+child-sort: exit(1)
+(page-merge-par) sort chunk 6
+(child-sort) open "buf5": FAILED
+child-sort: exit(1)
+(page-merge-par) sort chunk 7
+(child-sort) open "buf6": FAILED
+child-sort: exit(1)
+(page-merge-par) wait for child 0
+(page-merge-par) wait for child 0: FAILED
+page-merge-par: exit(1)
+Execution of 'page-merge-par' complete.
+Timer: 273 ticks
+Thread: 159 idle ticks, 33 kernel ticks, 81 user ticks
+hda2 (filesys): 630 reads, 4520 writes
+hda3 (scratch): 192 reads, 2 writes
+hda4 (swap): 0 reads, 0 writes
+Console: 1752 characters output
+Keyboard: 0 keys pressed
+Exception: 290 page faults
+Powering off...

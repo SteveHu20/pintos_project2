@@ -15,6 +15,8 @@
 #ifdef USERPROG
 #include "userprog/process.h"
 #include "userprog/syscall.h"
+#include "vm/page.h"
+
 #endif
 
 /* Random value for struct thread's `magic' member.
@@ -150,6 +152,9 @@ thread_init (void)
   list_init (&ready_list);
   list_init (&all_list);
   list_init(&sleeping_list);
+/**********added for project 3 ***************/
+  frame_table_init ();
+
   /* Set up a thread structure for the running thread. */
   initial_thread = running_thread ();
   init_thread (initial_thread, "main", PRI_DEFAULT);
@@ -590,8 +595,9 @@ init_thread (struct thread *t, const char *name, int priority)
   list_init (&t->files_owned_list);
   t->file_desc = 2; //0-STDIN, 1-STDOUT
   t->load_status = false;
-   
-
+  //add for project 3 
+  list_init (&t->mmap_list);
+  t->mapid = 0;
 
   old_level = intr_disable ();
   list_push_back (&all_list, &t->allelem);

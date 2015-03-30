@@ -4,7 +4,7 @@
 #include <debug.h>
 #include <list.h>
 #include <stdint.h>
-
+#include <hash.h>
 #include "synch.h"
 
 /* States in a thread's life cycle. */
@@ -152,6 +152,12 @@ struct thread
    bool child_create_error;
    struct list children_data;
    int exit_status;
+
+/*******************for project 3 ***********************/
+   struct hash spt;
+   int mapid;
+   struct list mmap_list;
+
   };
 
   struct child_thread_data {
