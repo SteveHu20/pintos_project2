@@ -1,13 +1,13 @@
 Copying tests/vm/page-parallel to scratch partition...
 Copying tests/vm/child-linear to scratch partition...
-qemu -hda /tmp/BZDZk5CkAr.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/_nMyZj67o_.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading...........
 Kernel command line: -q -f extract run page-parallel
 Pintos booting with 4,088 kB RAM...
 382 pages available in kernel pool.
 382 pages available in user pool.
-Calibrating timer...  157,081,600 loops/s.
+Calibrating timer...  130,867,200 loops/s.
 hda: 13,104 sectors (6 MB), model "QM00001", serial "QEMU HARDDISK"
 hda1: 186 sectors (93 kB), Pintos OS kernel (20)
 hda2: 4,096 sectors (2 MB), Pintos file system (21)
@@ -27,20 +27,24 @@ Executing 'page-parallel':
 (page-parallel) exec "child-linear"
 (page-parallel) exec "child-linear"
 (page-parallel) exec "child-linear"
+child-linear: exit(66)
+(page-parallel) exec "child-linear"
+(page-parallel) wait for child 0
+(page-parallel) wait for child 1
 Kernel PANIC at ../../threads/synch.c:256 in lock_release(): assertion `lock_held_by_current_thread (lock)' failed.
-Call stack: 0xc0028c5e 0x38bbd9ePage fault at 0x720a1: not present error reading page in kernel context.
+Call stack: 0xc0028c5e 0x373c867Page fault at 0x6f0a1: not present error reading page in kernel context.
 Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc0026667
- cr2=000720a1 error=00000000
- eax=0000000a ebx=000720a1 ecx=000007a0 edx=c0110dd8
- esi=00000100 edi=c003104f esp=c0031df8 ebp=c0110e74
- cs=0008 ds=0010 es=0010 ss=bd9e
+ cr2=0006f0a1 error=00000000
+ eax=0000000a ebx=0006f0a1 ecx=000007a0 edx=c0124dd8
+ esi=00000100 edi=c003116f esp=c0031f18 ebp=c0124e74
+ cs=0008 ds=0010 es=0010 ss=c867
 Kernel PANIC recursion at ../../userprog/exception.c:105 in kill().
-Timer: 107 ticks
-Thread: 47 idle ticks, 33 kernel ticks, 27 user ticks
-hda2 (filesys): 139 reads, 378 writes
+Timer: 146 ticks
+Thread: 45 idle ticks, 41 kernel ticks, 60 user ticks
+hda2 (filesys): 176 reads, 378 writes
 hda3 (scratch): 185 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes
-Console: 1601 characters output
+Console: 1726 characters output
 Keyboard: 0 keys pressed
-Exception: 381 page faults
+Exception: 639 page faults
 Powering off...

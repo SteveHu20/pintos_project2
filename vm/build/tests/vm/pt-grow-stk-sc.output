@@ -1,12 +1,12 @@
 Copying tests/vm/pt-grow-stk-sc to scratch partition...
-qemu -hda /tmp/iOxNXH8NgG.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/ZBhYhknBrZ.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading...........
 Kernel command line: -q -f extract run pt-grow-stk-sc
 Pintos booting with 4,088 kB RAM...
 382 pages available in kernel pool.
 382 pages available in user pool.
-Calibrating timer...  157,081,600 loops/s.
+Calibrating timer...  130,867,200 loops/s.
 hda: 13,104 sectors (6 MB), model "QM00001", serial "QEMU HARDDISK"
 hda1: 186 sectors (93 kB), Pintos OS kernel (20)
 hda2: 4,096 sectors (2 MB), Pintos file system (21)
@@ -27,14 +27,16 @@ Executing 'pt-grow-stk-sc':
 (pt-grow-stk-sc) write "sample.txt"
 (pt-grow-stk-sc) 2nd open "sample.txt"
 (pt-grow-stk-sc) read "sample.txt"
-pt-grow-stk-sc: exit(-1)
+(pt-grow-stk-sc) compare written data against read data
+(pt-grow-stk-sc) end
+pt-grow-stk-sc: exit(0)
 Execution of 'pt-grow-stk-sc' complete.
-Timer: 73 ticks
-Thread: 39 idle ticks, 30 kernel ticks, 4 user ticks
-hda2 (filesys): 95 reads, 202 writes
+Timer: 75 ticks
+Thread: 35 idle ticks, 34 kernel ticks, 6 user ticks
+hda2 (filesys): 97 reads, 202 writes
 hda3 (scratch): 94 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes
-Console: 1175 characters output
+Console: 1251 characters output
 Keyboard: 0 keys pressed
 Exception: 6 page faults
 Powering off...

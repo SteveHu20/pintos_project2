@@ -1,5 +1,5 @@
 Copying tests/vm/page-linear to scratch partition...
-qemu -hda /tmp/MggGJcdRIC.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/o5b_c4acq6.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading...........
 Kernel command line: -q -f extract run page-linear
@@ -28,8 +28,8 @@ Call stack: 0xc0028c5e.
 The `backtrace' program can make call stacks useful.
 Read "Backtraces" in the "Debugging Tools" chapter
 of the Pintos documentation for more information.
-Timer: 75 ticks
-Thread: 38 idle ticks, 29 kernel ticks, 8 user ticks
+Timer: 74 ticks
+Thread: 36 idle ticks, 30 kernel ticks, 8 user ticks
 hda2 (filesys): 58 reads, 198 writes
 hda3 (scratch): 96 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes

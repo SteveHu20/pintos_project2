@@ -1,5 +1,5 @@
 Copying tests/vm/mmap-zero to scratch partition...
-qemu -hda /tmp/RMk4UVDL9b.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/EKZnyEv2vT.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading...........
 Kernel command line: -q -f extract run mmap-zero
@@ -34,8 +34,8 @@ Interrupt 0x0e (#PF Page-Fault Exception) at eip=0x804811b
  cs=001b ds=0023 es=0023 ss=0023
 mmap-zero: exit(-1)
 Execution of 'mmap-zero' complete.
-Timer: 76 ticks
-Thread: 35 idle ticks, 33 kernel ticks, 8 user ticks
+Timer: 75 ticks
+Thread: 35 idle ticks, 35 kernel ticks, 6 user ticks
 hda2 (filesys): 89 reads, 192 writes
 hda3 (scratch): 91 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes

@@ -1,6 +1,6 @@
 Copying tests/vm/page-merge-seq to scratch partition...
 Copying tests/vm/child-sort to scratch partition...
-qemu -hda /tmp/tkSCNiDlYh.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/DufQ2pDubB.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading...........
 Kernel command line: -q -f extract run page-merge-seq
@@ -26,16 +26,46 @@ Executing 'page-merge-seq':
 (page-merge-seq) begin
 (page-merge-seq) init
 (page-merge-seq) sort chunk 0
-child-sort: exit(-1)
-(page-merge-seq) wait for child-sort: FAILED
-page-merge-seq: exit(1)
-Execution of 'page-merge-seq' complete.
-Timer: 102 ticks
-Thread: 47 idle ticks, 37 kernel ticks, 18 user ticks
-hda2 (filesys): 146 reads, 644 writes
+child-sort: exit(123)
+(page-merge-seq) sort chunk 1
+child-sort: exit(123)
+(page-merge-seq) sort chunk 2
+child-sort: exit(123)
+(page-merge-seq) sort chunk 3
+child-sort: exit(123)
+(page-merge-seq) sort chunk 4
+child-sort: exit(123)
+(page-merge-seq) sort chunk 5
+child-sort: exit(123)
+(page-merge-seq) sort chunk 6
+child-sort: exit(123)
+(page-merge-seq) sort chunk 7
+child-sort: exit(123)
+(page-merge-seq) sort chunk 8
+child-sort: exit(123)
+(page-merge-seq) sort chunk 9
+child-sort: exit(123)
+(page-merge-seq) sort chunk 10
+child-sort: exit(123)
+(page-merge-seq) sort chunk 11
+child-sort: exit(123)
+(page-merge-seq) sort chunk 12
+child-sort: exit(123)
+(page-merge-seq) sort chunk 13
+child-sort: exit(123)
+(page-merge-seq) sort chunk 14
+child-sort: exit(123)
+(page-merge-seq) sort chunk 15
+child-sort: exit(123)
+(page-merge-seq) merge
+Kernel PANIC at ../../threads/synch.c:256 in lock_release(): assertion `lock_held_by_current_thread (lock)' failed.
+Call stack: 0xc0028c5e 0x80e1fd9Kernel PANIC recursion at ../../threads/synch.c:256 in lock_release().
+Timer: 1503 ticks
+Thread: 222 idle ticks, 33 kernel ticks, 1248 user ticks
+hda2 (filesys): 4827 reads, 4550 writes
 hda3 (scratch): 190 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes
-Console: 1160 characters output
+Console: 2086 characters output
 Keyboard: 0 keys pressed
-Exception: 260 page faults
+Exception: 431 page faults
 Powering off...

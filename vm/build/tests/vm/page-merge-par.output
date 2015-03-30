@@ -1,13 +1,13 @@
 Copying tests/vm/page-merge-par to scratch partition...
 Copying tests/vm/child-sort to scratch partition...
-qemu -hda /tmp/w3xFvqEIUG.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/mZAtoGAFZM.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading...........
 Kernel command line: -q -f extract run page-merge-par
 Pintos booting with 4,088 kB RAM...
 382 pages available in kernel pool.
 382 pages available in user pool.
-Calibrating timer...  52,377,600 loops/s.
+Calibrating timer...  157,081,600 loops/s.
 hda: 13,104 sectors (6 MB), model "QM00001", serial "QEMU HARDDISK"
 hda1: 186 sectors (93 kB), Pintos OS kernel (20)
 hda2: 4,096 sectors (2 MB), Pintos file system (21)
@@ -51,12 +51,12 @@ child-sort: exit(1)
 (page-merge-par) wait for child 0: FAILED
 page-merge-par: exit(1)
 Execution of 'page-merge-par' complete.
-Timer: 273 ticks
-Thread: 159 idle ticks, 33 kernel ticks, 81 user ticks
-hda2 (filesys): 630 reads, 4520 writes
+Timer: 223 ticks
+Thread: 110 idle ticks, 34 kernel ticks, 79 user ticks
+hda2 (filesys): 631 reads, 4520 writes
 hda3 (scratch): 192 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes
-Console: 1752 characters output
+Console: 1753 characters output
 Keyboard: 0 keys pressed
 Exception: 290 page faults
 Powering off...

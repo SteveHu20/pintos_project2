@@ -1,6 +1,6 @@
 Copying tests/vm/pt-write-code2 to scratch partition...
 Copying ../../tests/vm/sample.txt to scratch partition...
-qemu -hda /tmp/dCFsraPR8e.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/gYYYrfkr1u.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading...........
 Kernel command line: -q -f extract run pt-write-code2
@@ -25,23 +25,14 @@ Erasing ustar archive...
 Executing 'pt-write-code2':
 (pt-write-code2) begin
 (pt-write-code2) open "sample.txt"
-Page fault at 0x80480a0: rights violation error writing page in kernel context.
-Interrupt 0x0e (#PF Page-Fault Exception) at eip=0xc0027b0d
- cr2=080480a0 error=00000003
- eax=080480a0 ebx=00000001 ecx=0000003d edx=00000000
- esi=c010720c edi=00000001 esp=c010b048 ebp=c010720c
- cs=0008 ds=0010 es=0010 ss=50cc
-Kernel PANIC at ../../userprog/exception.c:105 in kill(): Kernel bug - unexpected interrupt in kernel
-Call stack: 0xc0028c5e 0xc010720c.
-The `backtrace' program can make call stacks useful.
-Read "Backtraces" in the "Debugging Tools" chapter
-of the Pintos documentation for more information.
-Timer: 75 ticks
-Thread: 36 idle ticks, 34 kernel ticks, 5 user ticks
-hda2 (filesys): 94 reads, 196 writes
+pt-write-code2: exit(-1)
+Execution of 'pt-write-code2' complete.
+Timer: 94 ticks
+Thread: 50 idle ticks, 42 kernel ticks, 3 user ticks
+hda2 (filesys): 93 reads, 196 writes
 hda3 (scratch): 94 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes
-Console: 1607 characters output
+Console: 1073 characters output
 Keyboard: 0 keys pressed
-Exception: 6 page faults
+Exception: 5 page faults
 Powering off...

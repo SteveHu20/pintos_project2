@@ -227,6 +227,9 @@ process_exit (void)
   
   /* Destroy the current process's page directory and switch back
      to the kernel-only page directory. */
+  process_remove_mmap(CLOSE_ALL);
+  page_table_destroy (&cur->spt);
+
   pd = cur->pagedir;
   if (pd != NULL) 
     {

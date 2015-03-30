@@ -1,6 +1,6 @@
 Copying tests/vm/mmap-exit to scratch partition...
 Copying tests/vm/child-mm-wrt to scratch partition...
-qemu -hda /tmp/hcR4PIALfR.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/Ediz8MRclH.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading...........
 Kernel command line: -q -f extract run mmap-exit
@@ -31,27 +31,17 @@ Executing 'mmap-exit':
 (child-mm-wrt) end
 child-mm-wrt: exit(0)
 (mmap-exit) open "sample.txt" for verification
-(mmap-exit) 512 bytes read starting at offset 0 in "sample.txt" differ from expected.
-(mmap-exit) Showing first differing 64 bytes.
-(mmap-exit) Data actually read:
-00000000  00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00 |................|
-00000010  00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00 |................|
-00000020  00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00 |................|
-00000030  00 00 00 00 00 00 00 00-00 00 00 00 00 00 00 00 |................|
-(mmap-exit) Expected data:
-00000000  3d 3d 3d 20 20 41 4c 4c-20 55 53 45 52 53 20 50 |===  ALL USERS P|
-00000010  4c 45 41 53 45 20 4e 4f-54 45 20 20 3d 3d 3d 3d |LEASE NOTE  ====|
-00000020  3d 3d 3d 3d 3d 3d 3d 3d-3d 3d 3d 3d 3d 3d 3d 3d |================|
-00000030  3d 3d 3d 3d 0a 0a 43 41-52 20 61 6e 64 20 43 44 |====..CAR and CD|
-(mmap-exit) 512 bytes read starting at offset 0 in "sample.txt" differ from expected: FAILED
-mmap-exit: exit(1)
+(mmap-exit) verified contents of "sample.txt"
+(mmap-exit) close "sample.txt"
+(mmap-exit) end
+mmap-exit: exit(0)
 Execution of 'mmap-exit' complete.
-Timer: 129 ticks
-Thread: 61 idle ticks, 50 kernel ticks, 18 user ticks
-hda2 (filesys): 165 reads, 384 writes
+Timer: 83 ticks
+Thread: 47 idle ticks, 31 kernel ticks, 5 user ticks
+hda2 (filesys): 168 reads, 386 writes
 hda3 (scratch): 185 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes
-Console: 2124 characters output
+Console: 1315 characters output
 Keyboard: 0 keys pressed
 Exception: 11 page faults
 Powering off...

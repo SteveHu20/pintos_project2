@@ -1,5 +1,5 @@
 Copying tests/userprog/create-null to scratch partition...
-qemu -hda /tmp/VbulxGJBq1.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/zkPCMFJUk8.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading...........
 Kernel command line: -q -f extract run create-null
@@ -24,8 +24,8 @@ Executing 'create-null':
 (create-null) begin
 create-null: exit(-1)
 Execution of 'create-null' complete.
-Timer: 72 ticks
-Thread: 39 idle ticks, 31 kernel ticks, 3 user ticks
+Timer: 67 ticks
+Thread: 36 idle ticks, 29 kernel ticks, 2 user ticks
 hda2 (filesys): 63 reads, 186 writes
 hda3 (scratch): 90 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes

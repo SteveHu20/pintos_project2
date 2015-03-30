@@ -10,12 +10,60 @@
 #include "filesys/inode.h"
 #include "userprog/pagedir.h"
 #include "userprog/process.h"
+#include "vm/page.h"
 
 static void syscall_handler (struct intr_frame *);
-
+void sys_exit(int status);
 /*
  * unmapped some file
  */
+
+struct sup_page_entry*
+check_valid_ptr (const void *vaddr, void* esp)
+{
+    if (!is_user_vaddr (vaddr) || vaddr < USER_VADDR_BOTTOM)
+    {
+ 	sys_exit(ERROR);
+    }
+    bool load = false;
+    struct sup_page_entry *spte = get_spte((void *)vaddr);
+    if (spte)
+    {
+       load_page(spte);
+       load = spte->is_loaded;
+    }
+    else if (vaddr >= esp - STACK_HEURISTIC)
+    {
+        load = grow_stack ((void *) vaddr);
+    }
+    if (!load)
+    {
+       sys_exit(ERROR);
+    } 
+    return spte;
+}
+
+void
+check_valid_buffer (void *buffer, unsigned size, void *esp,
+		    bool to_write)
+{
+   unsigned i;
+   char *local_buffer = (char *)buffer;
+   for (i = 0; i < size; i++)
+   {
+      struct sup_page_entry *spte = check_valid_ptr((const void*)local_buffer,esp);
+      if (spte && to_write)
+      {
+	  if (!spte->writable)
+	   {
+ 		sys_exit(ERROR);
+           }
+      }
+	local_buffer++;
+   }
+
+}
+
 void
 munmap (int mapping)
 {
@@ -361,7 +409,8 @@ syscall_handler (struct intr_frame *f UNUSED)
 	validate_ptr((const void *) f->esp);
 	validate_page((const void *) f->esp);
 	
-	
+	//added for project 3
+        check_valid_ptr ((const void*)f->esp, f->esp);
 
 	//switch for diff system calls
 	switch(* ( int *) f->esp)
@@ -417,7 +466,8 @@ syscall_handler (struct intr_frame *f UNUSED)
 		case SYS_READ:
 		 {
 		 	get_arguments_from_stack (f, &arg[0], 3);
-		 	f->eax = sys_read (arg[0], (void *) arg[1], (unsigned) arg[2]);
+			check_valid_buffer ((void *)arg[1],(unsigned)arg[2], f->esp,true); 
+                	f->eax = sys_read (arg[0], (void *) arg[1], (unsigned) arg[2]);
 		 	break;
 		 } 
 		case SYS_WRITE:

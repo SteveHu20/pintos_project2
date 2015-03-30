@@ -1,6 +1,6 @@
 Copying tests/userprog/open-normal to scratch partition...
 Copying ../../tests/userprog/sample.txt to scratch partition...
-qemu -hda /tmp/THY3T0EUw5.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/t4pacQSlaT.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading...........
 Kernel command line: -q -f extract run open-normal
@@ -27,8 +27,8 @@ Executing 'open-normal':
 (open-normal) end
 open-normal: exit(0)
 Execution of 'open-normal' complete.
-Timer: 70 ticks
-Thread: 36 idle ticks, 32 kernel ticks, 2 user ticks
+Timer: 73 ticks
+Thread: 40 idle ticks, 32 kernel ticks, 1 user ticks
 hda2 (filesys): 92 reads, 194 writes
 hda3 (scratch): 93 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes

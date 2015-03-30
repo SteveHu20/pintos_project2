@@ -1,6 +1,6 @@
 Copying tests/vm/mmap-over-stk to scratch partition...
 Copying ../../tests/vm/sample.txt to scratch partition...
-qemu -hda /tmp/80DoDoBxbS.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/2qtyoYwojE.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading...........
 Kernel command line: -q -f extract run mmap-over-stk
@@ -29,8 +29,8 @@ Executing 'mmap-over-stk':
 (mmap-over-stk) end
 mmap-over-stk: exit(0)
 Execution of 'mmap-over-stk' complete.
-Timer: 68 ticks
-Thread: 36 idle ticks, 30 kernel ticks, 2 user ticks
+Timer: 69 ticks
+Thread: 40 idle ticks, 26 kernel ticks, 3 user ticks
 hda2 (filesys): 94 reads, 196 writes
 hda3 (scratch): 94 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes

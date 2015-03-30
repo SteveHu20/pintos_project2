@@ -1,5 +1,5 @@
 Copying tests/vm/mmap-write to scratch partition...
-qemu -hda /tmp/JI5RbyjPkA.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/eIg__KXUNC.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading...........
 Kernel command line: -q -f extract run mmap-write
@@ -30,7 +30,7 @@ Executing 'mmap-write':
 mmap-write: exit(0)
 Execution of 'mmap-write' complete.
 Timer: 74 ticks
-Thread: 38 idle ticks, 33 kernel ticks, 3 user ticks
+Thread: 42 idle ticks, 29 kernel ticks, 3 user ticks
 hda2 (filesys): 96 reads, 202 writes
 hda3 (scratch): 94 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes
