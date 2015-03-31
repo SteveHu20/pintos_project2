@@ -1,12 +1,12 @@
 Copying tests/vm/page-linear to scratch partition...
-qemu -hda /tmp/F1qXxOV8MR.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/E40DzMAl25.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading............
 Kernel command line: -q -f extract run page-linear
 Pintos booting with 4,088 kB RAM...
 382 pages available in kernel pool.
 382 pages available in user pool.
-Calibrating timer...  104,755,200 loops/s.
+Calibrating timer...  117,760,000 loops/s.
 hda: 13,104 sectors (6 MB), model "QM00001", serial "QEMU HARDDISK"
 hda1: 194 sectors (97 kB), Pintos OS kernel (20)
 hda2: 4,096 sectors (2 MB), Pintos file system (21)
@@ -23,17 +23,19 @@ Erasing ustar archive...
 Executing 'page-linear':
 (page-linear) begin
 (page-linear) initialize
-Kernel PANIC at ../../threads/synch.c:256 in lock_release(): assertion `lock_held_by_current_thread (lock)' failed.
-Call stack: 0xc0028c5e.
-The `backtrace' program can make call stacks useful.
-Read "Backtraces" in the "Debugging Tools" chapter
-of the Pintos documentation for more information.
-Timer: 107 ticks
-Thread: 46 idle ticks, 46 kernel ticks, 15 user ticks
-hda2 (filesys): 58 reads, 198 writes
+(page-linear) read pass
+(page-linear) read/modify/write pass one
+(page-linear) read/modify/write pass two
+(page-linear) read pass
+(page-linear) end
+page-linear: exit(0)
+Execution of 'page-linear' complete.
+Timer: 1370 ticks
+Thread: 774 idle ticks, 33 kernel ticks, 563 user ticks
+hda2 (filesys): 154 reads, 198 writes
 hda3 (scratch): 96 reads, 2 writes
-hda4 (swap): 0 reads, 0 writes
-Console: 1237 characters output
+hda4 (swap): 16456 reads, 17536 writes
+Console: 1161 characters output
 Keyboard: 0 keys pressed
-Exception: 382 page faults
+Exception: 2585 page faults
 Powering off...

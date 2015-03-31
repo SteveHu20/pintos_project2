@@ -1,6 +1,6 @@
 Copying tests/vm/page-merge-stk to scratch partition...
 Copying tests/vm/child-qsort to scratch partition...
-qemu -hda /tmp/i13r5dc7bc.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/eOVE8s6guj.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading............
 Kernel command line: -q -f extract run page-merge-stk
@@ -51,8 +51,8 @@ child-qsort: exit(1)
 (page-merge-stk) wait for child 0: FAILED
 page-merge-stk: exit(1)
 Execution of 'page-merge-stk' complete.
-Timer: 617 ticks
-Thread: 147 idle ticks, 36 kernel ticks, 434 user ticks
+Timer: 593 ticks
+Thread: 130 idle ticks, 36 kernel ticks, 427 user ticks
 hda2 (filesys): 608 reads, 4532 writes
 hda3 (scratch): 198 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes

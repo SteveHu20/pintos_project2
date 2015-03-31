@@ -1,6 +1,6 @@
 Copying tests/vm/page-merge-par to scratch partition...
 Copying tests/vm/child-sort to scratch partition...
-qemu -hda /tmp/bIRkNHuJFl.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/kWB3V9Z8Cv.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading............
 Kernel command line: -q -f extract run page-merge-par
@@ -51,8 +51,8 @@ child-sort: exit(1)
 (page-merge-par) wait for child 0: FAILED
 page-merge-par: exit(1)
 Execution of 'page-merge-par' complete.
-Timer: 583 ticks
-Thread: 142 idle ticks, 33 kernel ticks, 408 user ticks
+Timer: 593 ticks
+Thread: 141 idle ticks, 36 kernel ticks, 416 user ticks
 hda2 (filesys): 664 reads, 4520 writes
 hda3 (scratch): 192 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes

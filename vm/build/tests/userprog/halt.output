@@ -1,12 +1,12 @@
 Copying tests/userprog/halt to scratch partition...
-qemu -hda /tmp/GoYA_ogMoR.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/P1o58RuElK.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading............
 Kernel command line: -q -f extract run halt
 Pintos booting with 4,088 kB RAM...
 382 pages available in kernel pool.
 382 pages available in user pool.
-Calibrating timer...  117,145,600 loops/s.
+Calibrating timer...  157,081,600 loops/s.
 hda: 13,104 sectors (6 MB), model "QM00001", serial "QEMU HARDDISK"
 hda1: 194 sectors (97 kB), Pintos OS kernel (20)
 hda2: 4,096 sectors (2 MB), Pintos file system (21)
@@ -22,12 +22,12 @@ Putting 'halt' into the file system...
 Erasing ustar archive...
 Executing 'halt':
 (halt) begin
-Timer: 86 ticks
-Thread: 40 idle ticks, 45 kernel ticks, 1 user ticks
+Timer: 128 ticks
+Thread: 76 idle ticks, 47 kernel ticks, 5 user ticks
 hda2 (filesys): 63 reads, 186 writes
 hda3 (scratch): 90 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes
-Console: 888 characters output
+Console: 889 characters output
 Keyboard: 0 keys pressed
 Exception: 5 page faults
 Powering off...

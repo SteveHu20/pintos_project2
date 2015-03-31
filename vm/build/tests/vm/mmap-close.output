@@ -1,13 +1,13 @@
 Copying tests/vm/mmap-close to scratch partition...
 Copying ../../tests/vm/sample.txt to scratch partition...
-qemu -hda /tmp/fKZe8UaScr.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/YeEMmhHq9y.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading............
 Kernel command line: -q -f extract run mmap-close
 Pintos booting with 4,088 kB RAM...
 382 pages available in kernel pool.
 382 pages available in user pool.
-Calibrating timer...  157,081,600 loops/s.
+Calibrating timer...  107,929,600 loops/s.
 hda: 13,104 sectors (6 MB), model "QM00001", serial "QEMU HARDDISK"
 hda1: 194 sectors (97 kB), Pintos OS kernel (20)
 hda2: 4,096 sectors (2 MB), Pintos file system (21)
@@ -29,8 +29,8 @@ Executing 'mmap-close':
 (mmap-close) end
 mmap-close: exit(0)
 Execution of 'mmap-close' complete.
-Timer: 79 ticks
-Thread: 45 idle ticks, 32 kernel ticks, 2 user ticks
+Timer: 85 ticks
+Thread: 40 idle ticks, 42 kernel ticks, 3 user ticks
 hda2 (filesys): 97 reads, 200 writes
 hda3 (scratch): 96 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes

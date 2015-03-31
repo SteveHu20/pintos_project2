@@ -1,12 +1,12 @@
 Copying tests/userprog/open-empty to scratch partition...
-qemu -hda /tmp/I4KbJ64Gzv.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/qVVPTSfmJf.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading............
 Kernel command line: -q -f extract run open-empty
 Pintos booting with 4,088 kB RAM...
 382 pages available in kernel pool.
 382 pages available in user pool.
-Calibrating timer...  78,540,800 loops/s.
+Calibrating timer...  157,081,600 loops/s.
 hda: 13,104 sectors (6 MB), model "QM00001", serial "QEMU HARDDISK"
 hda1: 194 sectors (97 kB), Pintos OS kernel (20)
 hda2: 4,096 sectors (2 MB), Pintos file system (21)
@@ -25,12 +25,12 @@ Executing 'open-empty':
 (open-empty) end
 open-empty: exit(0)
 Execution of 'open-empty' complete.
-Timer: 78 ticks
-Thread: 40 idle ticks, 34 kernel ticks, 4 user ticks
+Timer: 80 ticks
+Thread: 36 idle ticks, 41 kernel ticks, 4 user ticks
 hda2 (filesys): 80 reads, 188 writes
 hda3 (scratch): 91 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes
-Console: 984 characters output
+Console: 985 characters output
 Keyboard: 0 keys pressed
 Exception: 5 page faults
 Powering off...

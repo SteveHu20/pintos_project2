@@ -1,13 +1,13 @@
 Copying tests/vm/pt-bad-read to scratch partition...
 Copying ../../tests/vm/sample.txt to scratch partition...
-qemu -hda /tmp/OuJKxm_wkq.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/pwpQc1BFSH.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading............
 Kernel command line: -q -f extract run pt-bad-read
 Pintos booting with 4,088 kB RAM...
 382 pages available in kernel pool.
 382 pages available in user pool.
-Calibrating timer...  78,540,800 loops/s.
+Calibrating timer...  130,867,200 loops/s.
 hda: 13,104 sectors (6 MB), model "QM00001", serial "QEMU HARDDISK"
 hda1: 194 sectors (97 kB), Pintos OS kernel (20)
 hda2: 4,096 sectors (2 MB), Pintos file system (21)
@@ -27,12 +27,12 @@ Executing 'pt-bad-read':
 (pt-bad-read) open "sample.txt"
 pt-bad-read: exit(-1)
 Execution of 'pt-bad-read' complete.
-Timer: 89 ticks
-Thread: 38 idle ticks, 47 kernel ticks, 4 user ticks
+Timer: 74 ticks
+Thread: 36 idle ticks, 35 kernel ticks, 3 user ticks
 hda2 (filesys): 93 reads, 196 writes
 hda3 (scratch): 94 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes
-Console: 1051 characters output
+Console: 1052 characters output
 Keyboard: 0 keys pressed
 Exception: 5 page faults
 Powering off...

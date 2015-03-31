@@ -1,12 +1,12 @@
 Copying tests/vm/pt-write-code to scratch partition...
-qemu -hda /tmp/bD6GGj3cg9.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/SRthOyhQNi.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading............
 Kernel command line: -q -f extract run pt-write-code
 Pintos booting with 4,088 kB RAM...
 382 pages available in kernel pool.
 382 pages available in user pool.
-Calibrating timer...  91,648,000 loops/s.
+Calibrating timer...  137,216,000 loops/s.
 hda: 13,104 sectors (6 MB), model "QM00001", serial "QEMU HARDDISK"
 hda1: 194 sectors (97 kB), Pintos OS kernel (20)
 hda2: 4,096 sectors (2 MB), Pintos file system (21)
@@ -31,12 +31,12 @@ Interrupt 0x0e (#PF Page-Fault Exception) at eip=0x80480a3
  cs=001b ds=0023 es=0023 ss=0023
 pt-write-code: exit(-1)
 Execution of 'pt-write-code' complete.
-Timer: 100 ticks
-Thread: 46 idle ticks, 44 kernel ticks, 11 user ticks
+Timer: 73 ticks
+Thread: 36 idle ticks, 33 kernel ticks, 4 user ticks
 hda2 (filesys): 63 reads, 186 writes
 hda3 (scratch): 90 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes
-Console: 1364 characters output
+Console: 1363 characters output
 Keyboard: 0 keys pressed
 Exception: 6 page faults
 Powering off...

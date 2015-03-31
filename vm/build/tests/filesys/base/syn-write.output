@@ -1,6 +1,6 @@
 Copying tests/filesys/base/syn-write to scratch partition...
 Copying tests/filesys/base/child-syn-wrt to scratch partition...
-qemu -hda /tmp/IDTOM4xPGU.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/AvXH8e0OfP.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading............
 Kernel command line: -q -f extract run syn-write
@@ -60,8 +60,8 @@ child-syn-wrt: exit(9)
 (syn-write) end
 syn-write: exit(0)
 Execution of 'syn-write' complete.
-Timer: 127 ticks
-Thread: 55 idle ticks, 39 kernel ticks, 34 user ticks
+Timer: 114 ticks
+Thread: 45 idle ticks, 39 kernel ticks, 31 user ticks
 hda2 (filesys): 510 reads, 428 writes
 hda3 (scratch): 198 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes

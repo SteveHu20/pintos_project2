@@ -1,13 +1,13 @@
 Copying tests/vm/page-merge-seq to scratch partition...
 Copying tests/vm/child-sort to scratch partition...
-qemu -hda /tmp/FbIQ98Y0nc.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/Ma3ZL7cnvB.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading............
 Kernel command line: -q -f extract run page-merge-seq
 Pintos booting with 4,088 kB RAM...
 382 pages available in kernel pool.
 382 pages available in user pool.
-Calibrating timer...  104,755,200 loops/s.
+Calibrating timer...  157,081,600 loops/s.
 hda: 13,104 sectors (6 MB), model "QM00001", serial "QEMU HARDDISK"
 hda1: 194 sectors (97 kB), Pintos OS kernel (20)
 hda2: 4,096 sectors (2 MB), Pintos file system (21)
@@ -58,14 +58,17 @@ child-sort: exit(123)
 (page-merge-seq) sort chunk 15
 child-sort: exit(123)
 (page-merge-seq) merge
-Kernel PANIC at ../../threads/synch.c:256 in lock_release(): assertion `lock_held_by_current_thread (lock)' failed.
-Call stack: 0xc0028c5e 0x80e1fd9Kernel PANIC recursion at ../../threads/synch.c:256 in lock_release().
-Timer: 4018 ticks
-Thread: 297 idle ticks, 57 kernel ticks, 3664 user ticks
-hda2 (filesys): 4827 reads, 4550 writes
+(page-merge-seq) verify
+(page-merge-seq) success, buf_idx=1,032,192
+(page-merge-seq) end
+page-merge-seq: exit(0)
+Execution of 'page-merge-seq' complete.
+Timer: 4222 ticks
+Thread: 412 idle ticks, 44 kernel ticks, 3766 user ticks
+hda2 (filesys): 4835 reads, 4550 writes
 hda3 (scratch): 190 reads, 2 writes
-hda4 (swap): 0 reads, 0 writes
-Console: 2086 characters output
+hda4 (swap): 312 reads, 1328 writes
+Console: 2025 characters output
 Keyboard: 0 keys pressed
-Exception: 431 page faults
+Exception: 596 page faults
 Powering off...

@@ -1,12 +1,12 @@
 Copying tests/userprog/close-stdout to scratch partition...
-qemu -hda /tmp/vG9ytI6I7u.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/8XmGRmdkZX.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading............
 Kernel command line: -q -f extract run close-stdout
 Pintos booting with 4,088 kB RAM...
 382 pages available in kernel pool.
 382 pages available in user pool.
-Calibrating timer...  105,062,400 loops/s.
+Calibrating timer...  129,433,600 loops/s.
 hda: 13,104 sectors (6 MB), model "QM00001", serial "QEMU HARDDISK"
 hda1: 194 sectors (97 kB), Pintos OS kernel (20)
 hda2: 4,096 sectors (2 MB), Pintos file system (21)
@@ -25,12 +25,12 @@ Executing 'close-stdout':
 (close-stdout) end
 close-stdout: exit(0)
 Execution of 'close-stdout' complete.
-Timer: 104 ticks
-Thread: 49 idle ticks, 50 kernel ticks, 6 user ticks
+Timer: 97 ticks
+Thread: 46 idle ticks, 48 kernel ticks, 3 user ticks
 hda2 (filesys): 63 reads, 186 writes
 hda3 (scratch): 90 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes
-Console: 1000 characters output
+Console: 999 characters output
 Keyboard: 0 keys pressed
 Exception: 5 page faults
 Powering off...
