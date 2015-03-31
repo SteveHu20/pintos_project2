@@ -216,8 +216,9 @@ void
 process_exit (void)
 {
 
-
-   close_all_files();
+  lock_acquire (&file_lock);
+  close_all_files();
+  lock_release (&file_lock);
 
   struct thread *cur = thread_current ();
   uint32_t *pd;
@@ -355,7 +356,8 @@ load (const char *file_name, void (**eip) (void), void **esp,
   process_activate ();
 
   /* Open executable file. */
-  
+  lock_acquire (&file_lock);
+/**********************************/
   file = filesys_open (file_name);
   if (file == NULL) 
     {
@@ -449,6 +451,7 @@ load (const char *file_name, void (**eip) (void), void **esp,
  done:
   /* We arrive here whether the load is successful or not. */
 //  file_close (file);
+  lock_release (&file_lock);
   return success;
 }
 

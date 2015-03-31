@@ -63,7 +63,47 @@ check_valid_buffer (void *buffer, unsigned size, void *esp,
    }
 
 }
+void
+check_valid_string (const void* str, void* esp)
+{
+    check_valid_ptr (str, esp);
+    while (* (char *)str != 0)
+    {
+	str = (char *)str + 1;
+ 	check_valid_ptr (str, esp);
+    }
+}
+void
+unpin_ptr (void* vaddr)
+{
+  struct sup_page_entry *spte = get_spte (vaddr);
+  if (spte)
+  {
+      spte->pinned = false;
+  }
+}
+void
+unpin_string (void* str)
+{
+  unpin_ptr (str);
+  while (* (char *) str != 0)
+  {
+     str = (char *)str + 1;
+     unpin_ptr (str);
+  }
+}
 
+void
+unpin_buffer (void* buffer, unsigned size)
+{
+   unsigned i;
+   char* local_buffer = (char *)buffer;
+   for (i = 0; i < size; i++)
+   {
+   	unpin_ptr (local_buffer);
+  	local_buffer ++;
+   }
+}
 void
 munmap (int mapping)
 {
@@ -442,18 +482,21 @@ syscall_handler (struct intr_frame *f UNUSED)
 		case SYS_CREATE:
 		 {
 		 	get_arguments_from_stack(f, &arg[0], 2);
-		 	f->eax = sys_create ((const char *)arg[0], (unsigned) arg[1]);
+		 	check_valid_string ((const void*)arg[0], f->esp);
+                        f->eax = sys_create ((const char *)arg[0], (unsigned) arg[1]);
 		 	break;
 		 }
 		case SYS_REMOVE:
 		 {
 		 	get_arguments_from_stack(f, &arg[0], 1);
-		 	f->eax = sys_remove ((const char *) arg[0]);
+		        check_valid_string ((const void *)arg[0], f->esp); 
+                	f->eax = sys_remove ((const char *) arg[0]);
 		 	break;	
 		 }
 		case SYS_OPEN:
 		 {
 		 	get_arguments_from_stack (f, &arg[0], 1);
+			check_valid_string ((const void*)arg[0], f->esp);
 		 	f->eax = sys_open ((const char *)arg[0]);
 		 	break;
 		 }
@@ -468,16 +511,18 @@ syscall_handler (struct intr_frame *f UNUSED)
 		 	get_arguments_from_stack (f, &arg[0], 3);
 			check_valid_buffer ((void *)arg[1],(unsigned)arg[2], f->esp,true); 
                 	f->eax = sys_read (arg[0], (void *) arg[1], (unsigned) arg[2]);
-		 	break;
+			unpin_buffer ((void *)arg[1], (unsigned)arg[2]); 
+			break;
 		 } 
 		case SYS_WRITE:
 		 {
 		 	get_arguments_from_stack (f, &arg[0], 3);
 		// 	printf("writing....\n");
 		 	//allocate_buffer ((void *) arg[1], (unsigned) arg[2]);
-
+			check_valid_buffer ((void *)arg[1], (unsigned)arg[2], f->esp,false);
 		 	f->eax = sys_write ((int) arg[0], (const void*)arg[1],
 		 						(unsigned) arg[2]);
+			unpin_buffer ((void *)arg[1], (unsigned) arg[2]);
 		 	break;
 		 } 
 		case SYS_SEEK:
@@ -511,6 +556,7 @@ syscall_handler (struct intr_frame *f UNUSED)
 		      break;
 		}
 	}
+		unpin_ptr(f->esp);
   
 }
 
