@@ -1,12 +1,12 @@
 Copying tests/vm/page-linear to scratch partition...
-qemu -hda /tmp/E40DzMAl25.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/kUxHxwuF2I.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading............
 Kernel command line: -q -f extract run page-linear
 Pintos booting with 4,088 kB RAM...
 382 pages available in kernel pool.
 382 pages available in user pool.
-Calibrating timer...  117,760,000 loops/s.
+Calibrating timer...  135,987,200 loops/s.
 hda: 13,104 sectors (6 MB), model "QM00001", serial "QEMU HARDDISK"
 hda1: 194 sectors (97 kB), Pintos OS kernel (20)
 hda2: 4,096 sectors (2 MB), Pintos file system (21)
@@ -30,12 +30,12 @@ Executing 'page-linear':
 (page-linear) end
 page-linear: exit(0)
 Execution of 'page-linear' complete.
-Timer: 1370 ticks
-Thread: 774 idle ticks, 33 kernel ticks, 563 user ticks
+Timer: 2601 ticks
+Thread: 1465 idle ticks, 49 kernel ticks, 1088 user ticks
 hda2 (filesys): 154 reads, 198 writes
 hda3 (scratch): 96 reads, 2 writes
 hda4 (swap): 16456 reads, 17536 writes
-Console: 1161 characters output
+Console: 1163 characters output
 Keyboard: 0 keys pressed
 Exception: 2585 page faults
 Powering off...

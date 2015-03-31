@@ -1,13 +1,13 @@
 Copying tests/vm/page-merge-mm to scratch partition...
 Copying tests/vm/child-qsort-mm to scratch partition...
-qemu -hda /tmp/V2bnRcZILP.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/BLemdkZFTC.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading............
 Kernel command line: -q -f extract run page-merge-mm
 Pintos booting with 4,088 kB RAM...
 382 pages available in kernel pool.
 382 pages available in user pool.
-Calibrating timer...  157,081,600 loops/s.
+Calibrating timer...  51,865,600 loops/s.
 hda: 13,104 sectors (6 MB), model "QM00001", serial "QEMU HARDDISK"
 hda1: 194 sectors (97 kB), Pintos OS kernel (20)
 hda2: 4,096 sectors (2 MB), Pintos file system (21)
@@ -27,38 +27,40 @@ Executing 'page-merge-mm':
 (page-merge-mm) init
 (page-merge-mm) sort chunk 0
 (page-merge-mm) sort chunk 1
-(child-qsort-mm) open "buf0": FAILED
-child-qsort-mm: exit(1)
+child-qsort-mm: exit(80)
 (page-merge-mm) sort chunk 2
-(child-qsort-mm) mmap "buf1": FAILED
-child-qsort-mm: exit(1)
+child-qsort-mm: exit(80)
 (page-merge-mm) sort chunk 3
-(child-qsort-mm) open "buf2": FAILED
-child-qsort-mm: exit(1)
+child-qsort-mm: exit(80)
 (page-merge-mm) sort chunk 4
-(child-qsort-mm) open "buf3": FAILED
-child-qsort-mm: exit(1)
+child-qsort-mm: exit(80)
 (page-merge-mm) sort chunk 5
-(child-qsort-mm) open "buf4": FAILED
-child-qsort-mm: exit(1)
+child-qsort-mm: exit(80)
 (page-merge-mm) sort chunk 6
-(child-qsort-mm) open "buf5": FAILED
-child-qsort-mm: exit(1)
+child-qsort-mm: exit(80)
 (page-merge-mm) sort chunk 7
-(child-qsort-mm) open "buf6": FAILED
-child-qsort-mm: exit(1)
+child-qsort-mm: exit(80)
 (page-merge-mm) wait for child 0
-(page-merge-mm) wait for child 0: FAILED
-(child-qsort-mm) mmap "buf7": FAILED
-child-qsort-mm: exit(1)
-page-merge-mm: exit(1)
+child-qsort-mm: exit(80)
+(page-merge-mm) wait for child 1
+(page-merge-mm) wait for child 2
+(page-merge-mm) wait for child 3
+(page-merge-mm) wait for child 4
+(page-merge-mm) wait for child 5
+(page-merge-mm) wait for child 6
+(page-merge-mm) wait for child 7
+(page-merge-mm) merge
+(page-merge-mm) verify
+(page-merge-mm) success, buf_idx=1,048,576
+(page-merge-mm) end
+page-merge-mm: exit(0)
 Execution of 'page-merge-mm' complete.
-Timer: 602 ticks
-Thread: 150 idle ticks, 36 kernel ticks, 416 user ticks
-hda2 (filesys): 620 reads, 4532 writes
+Timer: 1622 ticks
+Thread: 460 idle ticks, 56 kernel ticks, 1106 user ticks
+hda2 (filesys): 4781 reads, 6580 writes
 hda3 (scratch): 198 reads, 2 writes
-hda4 (swap): 0 reads, 0 writes
-Console: 1858 characters output
+hda4 (swap): 352 reads, 1432 writes
+Console: 1875 characters output
 Keyboard: 0 keys pressed
-Exception: 293 page faults
+Exception: 843 page faults
 Powering off...

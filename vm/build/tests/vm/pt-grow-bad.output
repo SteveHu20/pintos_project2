@@ -1,12 +1,12 @@
 Copying tests/vm/pt-grow-bad to scratch partition...
-qemu -hda /tmp/Ur8x6oX1uR.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/xa6Ss0n9Oz.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading............
 Kernel command line: -q -f extract run pt-grow-bad
 Pintos booting with 4,088 kB RAM...
 382 pages available in kernel pool.
 382 pages available in user pool.
-Calibrating timer...  157,081,600 loops/s.
+Calibrating timer...  104,857,600 loops/s.
 hda: 13,104 sectors (6 MB), model "QM00001", serial "QEMU HARDDISK"
 hda1: 194 sectors (97 kB), Pintos OS kernel (20)
 hda2: 4,096 sectors (2 MB), Pintos file system (21)
@@ -31,12 +31,12 @@ Interrupt 0x0e (#PF Page-Fault Exception) at eip=0x80480a0
  cs=001b ds=0023 es=0023 ss=0023
 pt-grow-bad: exit(-1)
 Execution of 'pt-grow-bad' complete.
-Timer: 74 ticks
-Thread: 39 idle ticks, 31 kernel ticks, 4 user ticks
+Timer: 109 ticks
+Thread: 44 idle ticks, 56 kernel ticks, 9 user ticks
 hda2 (filesys): 63 reads, 186 writes
 hda3 (scratch): 90 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes
-Console: 1345 characters output
+Console: 1346 characters output
 Keyboard: 0 keys pressed
 Exception: 6 page faults
 Powering off...

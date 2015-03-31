@@ -1,13 +1,13 @@
 Copying tests/vm/page-merge-stk to scratch partition...
 Copying tests/vm/child-qsort to scratch partition...
-qemu -hda /tmp/eOVE8s6guj.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/TU7zuyq7Ha.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading............
 Kernel command line: -q -f extract run page-merge-stk
 Pintos booting with 4,088 kB RAM...
 382 pages available in kernel pool.
 382 pages available in user pool.
-Calibrating timer...  157,081,600 loops/s.
+Calibrating timer...  104,755,200 loops/s.
 hda: 13,104 sectors (6 MB), model "QM00001", serial "QEMU HARDDISK"
 hda1: 194 sectors (97 kB), Pintos OS kernel (20)
 hda2: 4,096 sectors (2 MB), Pintos file system (21)
@@ -27,36 +27,55 @@ Executing 'page-merge-stk':
 (page-merge-stk) init
 (page-merge-stk) sort chunk 0
 (page-merge-stk) sort chunk 1
-(child-qsort) open "buf0": FAILED
-child-qsort: exit(1)
 (page-merge-stk) sort chunk 2
-(child-qsort) open "buf1": FAILED
-child-qsort: exit(1)
+child-qsort: exit(72)
+child-qsort: dying due to interrupt 0x03 (#BP Breakpoint Exception).
+Interrupt 0x03 (#BP Breakpoint Exception) at eip=0x804a694
+ cr2=0804a668 error=00000000
+ eax=00020000 ebx=00000002 ecx=00020000 edx=00000002
+ esi=bffdffa0 edi=00000000 esp=bffdff7c ebp=bfffffb0
+ cs=001b ds=0023 es=0023 ss=0023
+child-qsort: exit(-1)
 (page-merge-stk) sort chunk 3
-(child-qsort) open "buf2": FAILED
-child-qsort: exit(1)
 (page-merge-stk) sort chunk 4
-(child-qsort) open "buf3": FAILED
-child-qsort: exit(1)
+child-qsort: exit(72)
+child-qsort: dying due to interrupt 0x03 (#BP Breakpoint Exception).
+Interrupt 0x03 (#BP Breakpoint Exception) at eip=0x804a694
+ cr2=0804a668 error=00000000
+ eax=00020000 ebx=00000002 ecx=00020000 edx=00000002
+ esi=bffdffa0 edi=00000000 esp=bffdff7c ebp=bfffffb0
+ cs=001b ds=0023 es=0023 ss=0023
+child-qsort: exit(-1)
 (page-merge-stk) sort chunk 5
-(child-qsort) open "buf4": FAILED
-child-qsort: exit(1)
 (page-merge-stk) sort chunk 6
-(child-qsort) open "buf5": FAILED
-child-qsort: exit(1)
+child-qsort: exit(72)
+child-qsort: dying due to interrupt 0x03 (#BP Breakpoint Exception).
+Interrupt 0x03 (#BP Breakpoint Exception) at eip=0x804a694
+ cr2=0804a668 error=00000000
+ eax=00020000 ebx=00000002 ecx=00020000 edx=00000002
+ esi=bffdffa0 edi=00000000 esp=bffdff7c ebp=bfffffb0
+ cs=001b ds=0023 es=0023 ss=0023
+child-qsort: exit(-1)
 (page-merge-stk) sort chunk 7
-(child-qsort) open "buf6": FAILED
-child-qsort: exit(1)
 (page-merge-stk) wait for child 0
-(page-merge-stk) wait for child 0: FAILED
+child-qsort: exit(72)
+child-qsort: dying due to interrupt 0x03 (#BP Breakpoint Exception).
+Interrupt 0x03 (#BP Breakpoint Exception) at eip=0x804a6bd
+ cr2=0804a668 error=00000000
+ eax=00000002 ebx=00000002 ecx=00000043 edx=00000000
+ esi=bffdffa0 edi=00020000 esp=bffdff80 ebp=bfffffb0
+ cs=001b ds=0023 es=0023 ss=0023
+child-qsort: exit(-1)
+(page-merge-stk) wait for child 1
+(page-merge-stk) wait for child 1: FAILED
 page-merge-stk: exit(1)
 Execution of 'page-merge-stk' complete.
-Timer: 593 ticks
-Thread: 130 idle ticks, 36 kernel ticks, 427 user ticks
-hda2 (filesys): 608 reads, 4532 writes
+Timer: 2042 ticks
+Thread: 208 idle ticks, 34 kernel ticks, 1800 user ticks
+hda2 (filesys): 2909 reads, 5556 writes
 hda3 (scratch): 198 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes
-Console: 1769 characters output
+Console: 2781 characters output
 Keyboard: 0 keys pressed
-Exception: 300 page faults
+Exception: 293 page faults
 Powering off...

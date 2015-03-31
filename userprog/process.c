@@ -20,6 +20,8 @@
 #include "threads/vaddr.h"
 #include "vm/page.h"
 #include "vm/frame.h"
+#include "filesys/inode.h"
+
 static thread_func start_process NO_RETURN;
 static bool load (const char *cmdline, void (**eip) (void), void **esp,
                   char ** fp);
@@ -535,9 +537,14 @@ load_segment (struct file *file, off_t ofs, uint8_t *upage,
       size_t page_read_bytes = read_bytes < PGSIZE ? read_bytes : PGSIZE;
       size_t page_zero_bytes = PGSIZE - page_read_bytes;
 
+
+       off_t block_id = -1;
+      if (writable == false)
+		block_id = inode_get_block_number (file_get_inode(file), ofs);
+
       /*******************add from here ***************/
        if (!add_file_to_page_table (file, ofs, upage, page_read_bytes,
-				    page_zero_bytes, writable))	
+				    page_zero_bytes, writable, block_id))	
         {
 		return false;
 	} 

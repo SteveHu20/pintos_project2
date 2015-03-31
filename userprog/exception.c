@@ -152,12 +152,18 @@ page_fault (struct intr_frame *f)
   not_present = (f->error_code & PF_P) == 0;
   write = (f->error_code & PF_W) != 0;
   user = (f->error_code & PF_U) != 0;
+
+
   bool load = false;
+  
   if (not_present  && fault_addr >USER_VADDR_BOTTOM &&
       is_user_vaddr (fault_addr))
    {
 	struct sup_page_entry *spte = get_spte (fault_addr);
-        if (spte)
+        if (spte != NULL && write && !spte->writable){
+                sys_exit(-1);
+          } 
+       if (spte)
 	{
 	    load = load_page(spte);
 	    spte->pinned = false;

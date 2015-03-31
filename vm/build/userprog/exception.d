@@ -6,4 +6,5 @@ userprog/exception.o: ../../userprog/exception.c \
  ../../lib/kernel/stdio.h ../../userprog/gdt.h ../../threads/loader.h \
  ../../threads/interrupt.h ../../threads/thread.h ../../lib/kernel/hash.h \
  ../../lib/kernel/list.h ../../threads/synch.h ../../vm/page.h \
- ../../vm/frame.h ../../threads/palloc.h ../../threads/vaddr.h
+ ../../vm/frame.h ../../threads/palloc.h ../../filesys/off_t.h \
+ ../../threads/vaddr.h

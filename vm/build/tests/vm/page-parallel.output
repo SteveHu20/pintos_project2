@@ -1,13 +1,13 @@
 Copying tests/vm/page-parallel to scratch partition...
 Copying tests/vm/child-linear to scratch partition...
-qemu -hda /tmp/JmO8keFYf9.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/QsaD4gr3Ee.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading............
 Kernel command line: -q -f extract run page-parallel
 Pintos booting with 4,088 kB RAM...
 382 pages available in kernel pool.
 382 pages available in user pool.
-Calibrating timer...  183,296,000 loops/s.
+Calibrating timer...  143,974,400 loops/s.
 hda: 13,104 sectors (6 MB), model "QM00001", serial "QEMU HARDDISK"
 hda1: 194 sectors (97 kB), Pintos OS kernel (20)
 hda2: 4,096 sectors (2 MB), Pintos file system (21)
@@ -27,24 +27,42 @@ Executing 'page-parallel':
 (page-parallel) exec "child-linear"
 (page-parallel) exec "child-linear"
 (page-parallel) exec "child-linear"
-child-linear: exit(66)
-child-linear: exit(66)
-child-linear: exit(66)
 (page-parallel) exec "child-linear"
 (page-parallel) wait for child 0
-(page-parallel) wait for child 1
-(page-parallel) wait for child 2
-(page-parallel) wait for child 3
-child-linear: exit(66)
-(page-parallel) end
-page-parallel: exit(0)
+Page fault at 0x448d80df: not present error reading page in user context.
+child-linear: dying due to interrupt 0x0e (#PF Page-Fault Exception).
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0x8049001
+ cr2=448d80df error=00000004
+ eax=bffffe9e ebx=000000a1 ecx=0000001e edx=0806d000
+ esi=010751db edi=000210a1 esp=bffffe60 ebp=000000db
+ cs=001b ds=0023 es=0023 ss=0023
+child-linear: exit(-1)
+Page fault at 0x448d8018: not present error reading page in user context.
+child-linear: dying due to interrupt 0x0e (#PF Page-Fault Exception).
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0x8049001
+ cr2=448d8018 error=00000004
+ eax=bffffe9e ebx=000000a1 ecx=00000087 edx=0809d000
+ esi=02855614 edi=000510a1 esp=bffffe60 ebp=00000014
+ cs=001b ds=0023 es=0023 ss=0023
+child-linear: exit(-1)
+child-linear: dying due to interrupt 0x03 (#BP Breakpoint Exception).
+Interrupt 0x03 (#BP Breakpoint Exception) at eip=0x8048fc8
+ cr2=08049000 error=00000000
+ eax=bffffe9e ebx=000000a1 ecx=0000003f edx=0809a000
+ esi=026d8c36 edi=0004e0a1 esp=bffffe60 ebp=00000036
+ cs=001b ds=0023 es=0023 ss=0023
+child-linear: exit(-1)
+(child-linear) byte 160 != 0: FAILED
+child-linear: exit(1)
+(page-parallel) wait for child 0: FAILED
+page-parallel: exit(1)
 Execution of 'page-parallel' complete.
-Timer: 216 ticks
-Thread: 81 idle ticks, 33 kernel ticks, 102 user ticks
-hda2 (filesys): 239 reads, 378 writes
+Timer: 171 ticks
+Thread: 63 idle ticks, 47 kernel ticks, 61 user ticks
+hda2 (filesys): 255 reads, 378 writes
 hda3 (scratch): 185 reads, 2 writes
-hda4 (swap): 24 reads, 1144 writes
-Console: 1431 characters output
+hda4 (swap): 368 reads, 368 writes
+Console: 2427 characters output
 Keyboard: 0 keys pressed
-Exception: 1047 page faults
+Exception: 521 page faults
 Powering off...

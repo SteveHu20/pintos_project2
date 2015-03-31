@@ -1,13 +1,13 @@
 Copying tests/vm/mmap-twice to scratch partition...
 Copying ../../tests/vm/sample.txt to scratch partition...
-qemu -hda /tmp/TAU7aEFsdF.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/Sa6WbBD2ng.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading............
 Kernel command line: -q -f extract run mmap-twice
 Pintos booting with 4,088 kB RAM...
 382 pages available in kernel pool.
 382 pages available in user pool.
-Calibrating timer...  130,867,200 loops/s.
+Calibrating timer...  155,238,400 loops/s.
 hda: 13,104 sectors (6 MB), model "QM00001", serial "QEMU HARDDISK"
 hda1: 194 sectors (97 kB), Pintos OS kernel (20)
 hda2: 4,096 sectors (2 MB), Pintos file system (21)
@@ -33,12 +33,12 @@ Executing 'mmap-twice':
 (mmap-twice) end
 mmap-twice: exit(0)
 Execution of 'mmap-twice' complete.
-Timer: 84 ticks
-Thread: 44 idle ticks, 32 kernel ticks, 8 user ticks
+Timer: 111 ticks
+Thread: 59 idle ticks, 43 kernel ticks, 9 user ticks
 hda2 (filesys): 103 reads, 202 writes
 hda3 (scratch): 97 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes
-Console: 1291 characters output
+Console: 1292 characters output
 Keyboard: 0 keys pressed
 Exception: 7 page faults
 Powering off...

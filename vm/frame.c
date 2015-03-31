@@ -91,6 +91,7 @@ frame_add_to_table (void *frame, struct sup_page_entry *spte)
     fte->thread = thread_current ();
     lock_acquire (&frame_table_lock);
     list_push_back (&frame_table, &fte->elem);
+    list_init (&fte->page_list);
     lock_release (&frame_table_lock);
 } 
 
@@ -144,3 +145,59 @@ frame_evict (enum palloc_flags flags)
 	}
     }
 }
+
+/*
+ *  For frame sharing, we add this func, loop the frame list, find the matching
+ *  block_id
+ */
+
+void *
+lookup_frame (off_t block_id)
+{
+     void *frame = NULL;
+     lock_acquire (&frame_table_lock);
+     struct list_elem *e = list_begin (&frame_table);
+     for ( e = list_begin (&frame_table); e != list_end (&frame_table); e = list_next (e)){
+           struct frame_entry *ft = list_entry (e, struct frame_entry, elem);
+	   if (ft->spte->type == FILE && ft->spte->block_id == block_id)
+ 	   {
+ 		frame = ft->frame;
+   	        break;	
+           } 
+
+     }     
+     lock_release (&frame_table_lock);
+     return frame;
+}
+
+struct frame_entry *
+find_frame_entry (void *frame)
+{
+   lock_acquire (&frame_table_lock);
+   struct list_elem *e = list_begin (&frame_table);
+   for (e = list_begin (&frame_table); e != list_end (&frame_table); e = list_next (e)){
+       struct frame_entry *fe = list_entry (e, struct frame_entry, elem);
+       if ( fe -> frame == frame){
+              lock_release (&frame_table_lock);
+              return fe;
+       }
+   }
+   lock_release (&frame_table_lock);
+   return NULL;
+}
+
+/*
+ * This is to add a page entry to frame entry, so that multiple page can share one frame
+ */
+void 
+add_page_entry_to_frame(struct sup_page_entry *spte, void *frame)
+{
+    //1.find frame entry from the frame table 
+    struct frame_entry *fe = find_frame_entry (frame);
+    if (fe == NULL) return;
+    //2.add this supplemental page entry to this frame entry  
+    lock_acquire (&frame_table_lock);
+    list_push_back (&fe->page_list, &spte->sup_elem);
+    lock_release (&frame_table_lock);
+}
+  

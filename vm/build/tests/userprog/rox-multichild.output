@@ -1,13 +1,13 @@
 Copying tests/userprog/rox-multichild to scratch partition...
 Copying tests/userprog/child-rox to scratch partition...
-qemu -hda /tmp/m_Zuvmd4HI.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/FT8GkIQ3KY.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading............
 Kernel command line: -q -f extract run rox-multichild
 Pintos booting with 4,088 kB RAM...
 382 pages available in kernel pool.
 382 pages available in user pool.
-Calibrating timer...  65,433,600 loops/s.
+Calibrating timer...  114,688,000 loops/s.
 hda: 13,104 sectors (6 MB), model "QM00001", serial "QEMU HARDDISK"
 hda1: 194 sectors (97 kB), Pintos OS kernel (20)
 hda2: 4,096 sectors (2 MB), Pintos file system (21)
@@ -45,28 +45,43 @@ Executing 'rox-multichild':
 (child-rox) try to write "child-rox"
 (child-rox) end
 child-rox: exit(12)
-(child-rox) try to write "child-rox"
-(child-rox) end
-child-rox: exit(12)
-(child-rox) try to write "child-rox"
-(child-rox) end
-child-rox: exit(12)
-(child-rox) try to write "child-rox"
-(child-rox) end
-child-rox: exit(12)
-(child-rox) try to write "child-rox"
-(child-rox) end
-child-rox: exit(12)
-(rox-multichild) write "child-rox"
-(rox-multichild) end
-rox-multichild: exit(0)
+child-rox: dying due to interrupt 0x03 (#BP Breakpoint Exception).
+Interrupt 0x03 (#BP Breakpoint Exception) at eip=0x804a8ad
+ cr2=0804ae77 error=00000000
+ eax=0000000c ebx=00000008 ecx=0000001f edx=00000001
+ esi=00000000 edi=00000000 esp=bfffff14 ebp=bfffffb8
+ cs=001b ds=0023 es=0023 ss=0023
+child-rox: exit(-1)
+child-rox: dying due to interrupt 0x03 (#BP Breakpoint Exception).
+Interrupt 0x03 (#BP Breakpoint Exception) at eip=0x804a8ad
+ cr2=0804ae77 error=00000000
+ eax=ffffffff ebx=00000007 ecx=0000001f edx=00000001
+ esi=00000000 edi=00000000 esp=bfffff14 ebp=bfffffb8
+ cs=001b ds=0023 es=0023 ss=0023
+child-rox: exit(-1)
+child-rox: dying due to interrupt 0x03 (#BP Breakpoint Exception).
+Interrupt 0x03 (#BP Breakpoint Exception) at eip=0x804a8ad
+ cr2=0804ae77 error=00000000
+ eax=ffffffff ebx=00000006 ecx=0000001f edx=00000001
+ esi=00000000 edi=00000000 esp=bfffff14 ebp=bfffffb8
+ cs=001b ds=0023 es=0023 ss=0023
+child-rox: exit(-1)
+child-rox: dying due to interrupt 0x03 (#BP Breakpoint Exception).
+Interrupt 0x03 (#BP Breakpoint Exception) at eip=0x804a8ad
+ cr2=0804ae77 error=00000000
+ eax=ffffffff ebx=00000005 ecx=0000001f edx=00000001
+ esi=00000000 edi=00000000 esp=bfffff14 ebp=bfffffb8
+ cs=001b ds=0023 es=0023 ss=0023
+child-rox: exit(-1)
+(rox-multichild) wait for child: FAILED
+rox-multichild: exit(1)
 Execution of 'rox-multichild' complete.
-Timer: 112 ticks
-Thread: 58 idle ticks, 36 kernel ticks, 19 user ticks
-hda2 (filesys): 292 reads, 398 writes
+Timer: 160 ticks
+Thread: 41 idle ticks, 71 kernel ticks, 48 user ticks
+hda2 (filesys): 279 reads, 397 writes
 hda3 (scratch): 194 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes
-Console: 1999 characters output
+Console: 2948 characters output
 Keyboard: 0 keys pressed
 Exception: 25 page faults
 Powering off...

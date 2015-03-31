@@ -1,13 +1,13 @@
 Copying tests/userprog/exec-arg to scratch partition...
 Copying tests/userprog/child-args to scratch partition...
-qemu -hda /tmp/tqPhf9GDfX.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/r5W2pqzGc3.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading............
 Kernel command line: -q -f extract run exec-arg
 Pintos booting with 4,088 kB RAM...
 382 pages available in kernel pool.
 382 pages available in user pool.
-Calibrating timer...  106,905,600 loops/s.
+Calibrating timer...  156,876,800 loops/s.
 hda: 13,104 sectors (6 MB), model "QM00001", serial "QEMU HARDDISK"
 hda1: 194 sectors (97 kB), Pintos OS kernel (20)
 hda2: 4,096 sectors (2 MB), Pintos file system (21)
@@ -34,12 +34,12 @@ child-args: exit(0)
 (exec-arg) end
 exec-arg: exit(0)
 Execution of 'exec-arg' complete.
-Timer: 136 ticks
-Thread: 58 idle ticks, 66 kernel ticks, 12 user ticks
+Timer: 111 ticks
+Thread: 51 idle ticks, 54 kernel ticks, 7 user ticks
 hda2 (filesys): 126 reads, 366 writes
 hda3 (scratch): 179 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes
-Console: 1161 characters output
+Console: 1160 characters output
 Keyboard: 0 keys pressed
 Exception: 10 page faults
 Powering off...

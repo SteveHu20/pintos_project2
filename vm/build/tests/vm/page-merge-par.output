@@ -1,13 +1,13 @@
 Copying tests/vm/page-merge-par to scratch partition...
 Copying tests/vm/child-sort to scratch partition...
-qemu -hda /tmp/kWB3V9Z8Cv.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/1UodFtt2n5.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading............
 Kernel command line: -q -f extract run page-merge-par
 Pintos booting with 4,088 kB RAM...
 382 pages available in kernel pool.
 382 pages available in user pool.
-Calibrating timer...  157,081,600 loops/s.
+Calibrating timer...  104,755,200 loops/s.
 hda: 13,104 sectors (6 MB), model "QM00001", serial "QEMU HARDDISK"
 hda1: 194 sectors (97 kB), Pintos OS kernel (20)
 hda2: 4,096 sectors (2 MB), Pintos file system (21)
@@ -27,36 +27,67 @@ Executing 'page-merge-par':
 (page-merge-par) init
 (page-merge-par) sort chunk 0
 (page-merge-par) sort chunk 1
-(child-sort) open "buf0": FAILED
-child-sort: exit(1)
 (page-merge-par) sort chunk 2
-(child-sort) open "buf1": FAILED
-child-sort: exit(1)
 (page-merge-par) sort chunk 3
-(child-sort) open "buf2": FAILED
-child-sort: exit(1)
+child-sort: exit(123)
 (page-merge-par) sort chunk 4
-(child-sort) open "buf3": FAILED
-child-sort: exit(1)
+child-sort: dying due to interrupt 0x0d (#GP General Protection Exception).
+Interrupt 0x0d (#GP General Protection Exception) at eip=0x804a485
+ cr2=080487b0 error=00000000
+ eax=00020089 ebx=bfffffe4 ecx=00020000 edx=00000002
+ esi=00000000 edi=00000000 esp=bfffff6c ebp=bfffffb4
+ cs=001b ds=0023 es=0023 ss=0023
+child-sort: exit(-1)
 (page-merge-par) sort chunk 5
-(child-sort) open "buf4": FAILED
-child-sort: exit(1)
+Page fault at 0x20000: not present error reading page in user context.
+child-sort: dying due to interrupt 0x0e (#PF Page-Fault Exception).
+Interrupt 0x0e (#PF Page-Fault Exception) at eip=0x804810c
+ cr2=00020000 error=00000004
+ eax=00020000 ebx=bfffffe4 ecx=00020000 edx=00000002
+ esi=00000000 edi=00000000 esp=bfffff80 ebp=bfffffb4
+ cs=001b ds=0023 es=0023 ss=0023
+child-sort: dying due to interrupt 0x0d (#GP General Protection Exception).
+Interrupt 0x0d (#GP General Protection Exception) at eip=0x804a483
+ cr2=00020000 error=00000000
+ eax=00020000 ebx=bfffffe4 ecx=00020000 edx=00000002
+ esi=00000000 edi=00000000 esp=bfffff6c ebp=bfffffb4
+ cs=001b ds=0023 es=0023 ss=0023
+child-sort: exit(-1)
+child-sort: exit(-1)
 (page-merge-par) sort chunk 6
-(child-sort) open "buf5": FAILED
-child-sort: exit(1)
 (page-merge-par) sort chunk 7
-(child-sort) open "buf6": FAILED
-child-sort: exit(1)
+child-sort: dying due to interrupt 0x0d (#GP General Protection Exception).
+Interrupt 0x0d (#GP General Protection Exception) at eip=0x804a483
+ cr2=0804a458 error=00000000
+ eax=00020000 ebx=bfffffe4 ecx=00020000 edx=00000002
+ esi=00000000 edi=00000000 esp=bfffff6c ebp=bfffffb4
+ cs=001b ds=0023 es=0023 ss=0023
+child-sort: exit(-1)
+child-sort: dying due to interrupt 0x03 (#BP Breakpoint Exception).
+Interrupt 0x03 (#BP Breakpoint Exception) at eip=0x804810d
+ cr2=0804a458 error=00000000
+ eax=00020000 ebx=bfffffe4 ecx=00020000 edx=00000002
+ esi=00000000 edi=00000000 esp=bfffff80 ebp=bfffffb4
+ cs=001b ds=0023 es=0023 ss=0023
+child-sort: exit(-1)
 (page-merge-par) wait for child 0
-(page-merge-par) wait for child 0: FAILED
+child-sort: dying due to interrupt 0x0d (#GP General Protection Exception).
+Interrupt 0x0d (#GP General Protection Exception) at eip=0x804a483
+ cr2=0804a458 error=00000008
+ eax=00020000 ebx=bfffffe4 ecx=00020000 edx=00000002
+ esi=00000000 edi=00000000 esp=bfffff6c ebp=bfffffb4
+ cs=001b ds=0023 es=0023 ss=0023
+child-sort: exit(-1)
+(page-merge-par) wait for child 1
+(page-merge-par) wait for child 1: FAILED
 page-merge-par: exit(1)
 Execution of 'page-merge-par' complete.
-Timer: 593 ticks
-Thread: 141 idle ticks, 36 kernel ticks, 416 user ticks
-hda2 (filesys): 664 reads, 4520 writes
+Timer: 2238 ticks
+Thread: 233 idle ticks, 60 kernel ticks, 1945 user ticks
+hda2 (filesys): 2709 reads, 4776 writes
 hda3 (scratch): 192 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes
-Console: 1754 characters output
+Console: 3473 characters output
 Keyboard: 0 keys pressed
-Exception: 292 page faults
+Exception: 286 page faults
 Powering off...

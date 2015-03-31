@@ -1,13 +1,13 @@
 Copying tests/vm/mmap-overlap to scratch partition...
 Copying tests/vm/zeros to scratch partition...
-qemu -hda /tmp/AFhr0pu9Lo.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/VuFJVasoM8.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading............
 Kernel command line: -q -f extract run mmap-overlap
 Pintos booting with 4,088 kB RAM...
 382 pages available in kernel pool.
 382 pages available in user pool.
-Calibrating timer...  157,081,600 loops/s.
+Calibrating timer...  106,700,800 loops/s.
 hda: 13,104 sectors (6 MB), model "QM00001", serial "QEMU HARDDISK"
 hda1: 194 sectors (97 kB), Pintos OS kernel (20)
 hda2: 4,096 sectors (2 MB), Pintos file system (21)
@@ -26,15 +26,17 @@ Executing 'mmap-overlap':
 (mmap-overlap) begin
 (mmap-overlap) open "zeros" once
 (mmap-overlap) mmap "zeros"
-(mmap-overlap) mmap "zeros": FAILED
-mmap-overlap: exit(1)
+(mmap-overlap) open "zeros" again
+(mmap-overlap) try to mmap "zeros" again
+(mmap-overlap) end
+mmap-overlap: exit(0)
 Execution of 'mmap-overlap' complete.
-Timer: 73 ticks
-Thread: 35 idle ticks, 36 kernel ticks, 2 user ticks
-hda2 (filesys): 86 reads, 220 writes
+Timer: 91 ticks
+Thread: 40 idle ticks, 48 kernel ticks, 3 user ticks
+hda2 (filesys): 89 reads, 220 writes
 hda3 (scratch): 106 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes
-Console: 1119 characters output
+Console: 1177 characters output
 Keyboard: 0 keys pressed
 Exception: 4 page faults
 Powering off...

@@ -141,6 +141,7 @@ mmap (int fd, void *addr)
          }
          read_bytes -= page_read_bytes;
 	 ofs += page_read_bytes;
+	 addr += PGSIZE;
     }
     return thread_current ()->mapid;
 
@@ -308,9 +309,9 @@ sys_create (const char *file, unsigned size)
 		 }
 	validate_ptr (file);
 	validate_page (file);
-//	lock_acquire (&file_lock);
+	lock_acquire (&file_lock);
 	bool status = filesys_create (file, size);
-//	lock_release (&file_lock);
+	lock_release (&file_lock);
 	return status;
 }
 

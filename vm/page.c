@@ -1,3 +1,4 @@
+#include "filesys/off_t.h"
 #include <string.h>
 #include <stdbool.h>
 #include "filesys/file.h"
@@ -99,15 +100,28 @@ bool
 load_file (struct sup_page_entry *spte)
 {
    enum palloc_flags flags = PAL_USER;
+  uint8_t *frame = NULL;
   if (spte->read_bytes == 0)
     {
       flags |= PAL_ZERO;
     }
-  uint8_t *frame = frame_alloc(flags, spte);
+  lock_acquire (&file_lock);
+  if (spte->block_id != -1){
+  	frame = lookup_frame(spte->block_id);     
+  }
+  lock_release (&file_lock);  
+
+  if(frame == NULL){
+  	frame = frame_alloc(flags, spte);
+  }
+ 
   if (!frame)
     {
       return false;
     }
+//This is to add page entry to a frame
+   add_page_entry_to_frame (spte, frame);
+
   if (spte->read_bytes > 0)
     {
       lock_acquire(&file_lock);
@@ -174,7 +188,7 @@ load_page (struct sup_page_entry *spte)
 bool
 add_file_to_page_table (struct file *file, int32_t ofs, uint8_t *upage,
 			uint32_t read_bytes, uint32_t zero_bytes,
-			bool writable)
+			bool writable, off_t block_id)
 {
    struct sup_page_entry *spte = malloc (sizeof (struct sup_page_entry));
    if (!spte)
@@ -186,6 +200,7 @@ add_file_to_page_table (struct file *file, int32_t ofs, uint8_t *upage,
    spte->uva = upage;
    spte->read_bytes = read_bytes;
    spte->zero_bytes = zero_bytes;
+   spte->block_id = block_id;
    spte->writable = writable;
    spte->is_loaded = false;
    spte->type = FILE;

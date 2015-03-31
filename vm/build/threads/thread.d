@@ -8,4 +8,4 @@ threads/thread.o: ../../threads/thread.c ../../threads/thread.h \
  ../../threads/intr-stubs.h ../../threads/palloc.h ../../threads/switch.h \
  ../../threads/synch.h ../../threads/vaddr.h ../../threads/loader.h \
  ../../userprog/process.h ../../userprog/syscall.h ../../vm/page.h \
- ../../vm/frame.h
+ ../../vm/frame.h ../../filesys/off_t.h

@@ -17,6 +17,9 @@ struct frame_entry{
    struct sup_page_entry *spte;
    struct thread *thread;
    struct list_elem elem;
+
+   //for frame sharging
+   struct list page_list;
 };
 
 void
@@ -33,5 +36,8 @@ frame_add_to_table (void *frame, struct sup_page_entry *spte);
 
 void *
 frame_evict (enum palloc_flags flags);
+
+void
+add_page_entry_to_frame (struct sup_page_entry *spte, void *frame);
 
 #endif

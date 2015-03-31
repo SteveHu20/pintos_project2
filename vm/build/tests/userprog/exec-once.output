@@ -1,13 +1,13 @@
 Copying tests/userprog/exec-once to scratch partition...
 Copying tests/userprog/child-simple to scratch partition...
-qemu -hda /tmp/rz7ca7cf8i.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/Q6DPHd9Fmb.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading............
 Kernel command line: -q -f extract run exec-once
 Pintos booting with 4,088 kB RAM...
 382 pages available in kernel pool.
 382 pages available in user pool.
-Calibrating timer...  104,755,200 loops/s.
+Calibrating timer...  116,531,200 loops/s.
 hda: 13,104 sectors (6 MB), model "QM00001", serial "QEMU HARDDISK"
 hda1: 194 sectors (97 kB), Pintos OS kernel (20)
 hda2: 4,096 sectors (2 MB), Pintos file system (21)
@@ -29,12 +29,12 @@ child-simple: exit(81)
 (exec-once) end
 exec-once: exit(0)
 Execution of 'exec-once' complete.
-Timer: 105 ticks
-Thread: 55 idle ticks, 42 kernel ticks, 8 user ticks
+Timer: 96 ticks
+Thread: 53 idle ticks, 37 kernel ticks, 6 user ticks
 hda2 (filesys): 126 reads, 366 writes
 hda3 (scratch): 179 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes
-Console: 1071 characters output
+Console: 1070 characters output
 Keyboard: 0 keys pressed
 Exception: 9 page faults
 Powering off...
