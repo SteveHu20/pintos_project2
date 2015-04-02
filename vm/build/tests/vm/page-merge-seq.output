@@ -1,13 +1,13 @@
 Copying tests/vm/page-merge-seq to scratch partition...
 Copying tests/vm/child-sort to scratch partition...
-qemu -hda /tmp/NzGEB0CtSc.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/Xcp_pKby2_.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading............
 Kernel command line: -q -f extract run page-merge-seq
 Pintos booting with 4,088 kB RAM...
 382 pages available in kernel pool.
 382 pages available in user pool.
-Calibrating timer...  157,081,600 loops/s.
+Calibrating timer...  104,243,200 loops/s.
 hda: 13,104 sectors (6 MB), model "QM00001", serial "QEMU HARDDISK"
 hda1: 194 sectors (97 kB), Pintos OS kernel (20)
 hda2: 4,096 sectors (2 MB), Pintos file system (21)
@@ -48,27 +48,3 @@ child-sort: exit(123)
 (page-merge-seq) sort chunk 10
 child-sort: exit(123)
 (page-merge-seq) sort chunk 11
-child-sort: exit(123)
-(page-merge-seq) sort chunk 12
-child-sort: exit(123)
-(page-merge-seq) sort chunk 13
-child-sort: exit(123)
-(page-merge-seq) sort chunk 14
-child-sort: exit(123)
-(page-merge-seq) sort chunk 15
-child-sort: exit(123)
-(page-merge-seq) merge
-(page-merge-seq) verify
-(page-merge-seq) success, buf_idx=1,032,192
-(page-merge-seq) end
-page-merge-seq: exit(0)
-Execution of 'page-merge-seq' complete.
-Timer: 4851 ticks
-Thread: 415 idle ticks, 35 kernel ticks, 4401 user ticks
-hda2 (filesys): 4835 reads, 4550 writes
-hda3 (scratch): 190 reads, 2 writes
-hda4 (swap): 312 reads, 1328 writes
-Console: 2025 characters output
-Keyboard: 0 keys pressed
-Exception: 596 page faults
-Powering off...

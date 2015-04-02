@@ -1,13 +1,13 @@
 Copying tests/vm/mmap-misalign to scratch partition...
 Copying ../../tests/vm/sample.txt to scratch partition...
-qemu -hda /tmp/p3VxP6aHb_.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/EHlwxYWgr_.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading............
 Kernel command line: -q -f extract run mmap-misalign
 Pintos booting with 4,088 kB RAM...
 382 pages available in kernel pool.
 382 pages available in user pool.
-Calibrating timer...  130,867,200 loops/s.
+Calibrating timer...  98,201,600 loops/s.
 hda: 13,104 sectors (6 MB), model "QM00001", serial "QEMU HARDDISK"
 hda1: 194 sectors (97 kB), Pintos OS kernel (20)
 hda2: 4,096 sectors (2 MB), Pintos file system (21)
@@ -29,12 +29,12 @@ Executing 'mmap-misalign':
 (mmap-misalign) end
 mmap-misalign: exit(0)
 Execution of 'mmap-misalign' complete.
-Timer: 75 ticks
-Thread: 38 idle ticks, 32 kernel ticks, 5 user ticks
+Timer: 78 ticks
+Thread: 39 idle ticks, 35 kernel ticks, 5 user ticks
 hda2 (filesys): 93 reads, 196 writes
 hda3 (scratch): 94 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes
-Console: 1135 characters output
+Console: 1134 characters output
 Keyboard: 0 keys pressed
 Exception: 5 page faults
 Powering off...

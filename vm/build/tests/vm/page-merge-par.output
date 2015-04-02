@@ -1,6 +1,6 @@
 Copying tests/vm/page-merge-par to scratch partition...
 Copying tests/vm/child-sort to scratch partition...
-qemu -hda /tmp/1UodFtt2n5.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/8KJ1bs4zIB.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading............
 Kernel command line: -q -f extract run page-merge-par
@@ -31,63 +31,36 @@ Executing 'page-merge-par':
 (page-merge-par) sort chunk 3
 child-sort: exit(123)
 (page-merge-par) sort chunk 4
-child-sort: dying due to interrupt 0x0d (#GP General Protection Exception).
-Interrupt 0x0d (#GP General Protection Exception) at eip=0x804a485
- cr2=080487b0 error=00000000
- eax=00020089 ebx=bfffffe4 ecx=00020000 edx=00000002
- esi=00000000 edi=00000000 esp=bfffff6c ebp=bfffffb4
- cs=001b ds=0023 es=0023 ss=0023
-child-sort: exit(-1)
 (page-merge-par) sort chunk 5
-Page fault at 0x20000: not present error reading page in user context.
-child-sort: dying due to interrupt 0x0e (#PF Page-Fault Exception).
-Interrupt 0x0e (#PF Page-Fault Exception) at eip=0x804810c
- cr2=00020000 error=00000004
- eax=00020000 ebx=bfffffe4 ecx=00020000 edx=00000002
- esi=00000000 edi=00000000 esp=bfffff80 ebp=bfffffb4
- cs=001b ds=0023 es=0023 ss=0023
-child-sort: dying due to interrupt 0x0d (#GP General Protection Exception).
-Interrupt 0x0d (#GP General Protection Exception) at eip=0x804a483
- cr2=00020000 error=00000000
- eax=00020000 ebx=bfffffe4 ecx=00020000 edx=00000002
- esi=00000000 edi=00000000 esp=bfffff6c ebp=bfffffb4
- cs=001b ds=0023 es=0023 ss=0023
-child-sort: exit(-1)
-child-sort: exit(-1)
 (page-merge-par) sort chunk 6
 (page-merge-par) sort chunk 7
-child-sort: dying due to interrupt 0x0d (#GP General Protection Exception).
-Interrupt 0x0d (#GP General Protection Exception) at eip=0x804a483
- cr2=0804a458 error=00000000
- eax=00020000 ebx=bfffffe4 ecx=00020000 edx=00000002
- esi=00000000 edi=00000000 esp=bfffff6c ebp=bfffffb4
- cs=001b ds=0023 es=0023 ss=0023
-child-sort: exit(-1)
-child-sort: dying due to interrupt 0x03 (#BP Breakpoint Exception).
-Interrupt 0x03 (#BP Breakpoint Exception) at eip=0x804810d
- cr2=0804a458 error=00000000
- eax=00020000 ebx=bfffffe4 ecx=00020000 edx=00000002
- esi=00000000 edi=00000000 esp=bfffff80 ebp=bfffffb4
- cs=001b ds=0023 es=0023 ss=0023
-child-sort: exit(-1)
 (page-merge-par) wait for child 0
-child-sort: dying due to interrupt 0x0d (#GP General Protection Exception).
-Interrupt 0x0d (#GP General Protection Exception) at eip=0x804a483
- cr2=0804a458 error=00000008
- eax=00020000 ebx=bfffffe4 ecx=00020000 edx=00000002
- esi=00000000 edi=00000000 esp=bfffff6c ebp=bfffffb4
- cs=001b ds=0023 es=0023 ss=0023
-child-sort: exit(-1)
 (page-merge-par) wait for child 1
-(page-merge-par) wait for child 1: FAILED
-page-merge-par: exit(1)
+child-sort: exit(123)
+child-sort: exit(123)
+child-sort: exit(123)
+(page-merge-par) wait for child 2
+(page-merge-par) wait for child 3
+child-sort: exit(123)
+(page-merge-par) wait for child 4
+child-sort: exit(123)
+child-sort: exit(123)
+child-sort: exit(123)
+(page-merge-par) wait for child 5
+(page-merge-par) wait for child 6
+(page-merge-par) wait for child 7
+(page-merge-par) merge
+(page-merge-par) verify
+(page-merge-par) success, buf_idx=1,048,576
+(page-merge-par) end
+page-merge-par: exit(0)
 Execution of 'page-merge-par' complete.
-Timer: 2238 ticks
-Thread: 233 idle ticks, 60 kernel ticks, 1945 user ticks
-hda2 (filesys): 2709 reads, 4776 writes
+Timer: 10022 ticks
+Thread: 507 idle ticks, 65 kernel ticks, 9450 user ticks
+hda2 (filesys): 4837 reads, 6568 writes
 hda3 (scratch): 192 reads, 2 writes
-hda4 (swap): 0 reads, 0 writes
-Console: 3473 characters output
+hda4 (swap): 352 reads, 1432 writes
+Console: 1876 characters output
 Keyboard: 0 keys pressed
-Exception: 286 page faults
+Exception: 688433 page faults
 Powering off...

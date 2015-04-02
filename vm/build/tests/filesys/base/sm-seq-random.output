@@ -1,12 +1,12 @@
 Copying tests/filesys/base/sm-seq-random to scratch partition...
-qemu -hda /tmp/zmSVSEzhpE.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/gSP0hcG6H3.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading............
 Kernel command line: -q -f extract run sm-seq-random
 Pintos booting with 4,088 kB RAM...
 382 pages available in kernel pool.
 382 pages available in user pool.
-Calibrating timer...  117,760,000 loops/s.
+Calibrating timer...  142,950,400 loops/s.
 hda: 13,104 sectors (6 MB), model "QM00001", serial "QEMU HARDDISK"
 hda1: 194 sectors (97 kB), Pintos OS kernel (20)
 hda2: 4,096 sectors (2 MB), Pintos file system (21)
@@ -32,12 +32,12 @@ Executing 'sm-seq-random':
 (sm-seq-random) end
 sm-seq-random: exit(0)
 Execution of 'sm-seq-random' complete.
-Timer: 98 ticks
-Thread: 42 idle ticks, 40 kernel ticks, 16 user ticks
+Timer: 120 ticks
+Thread: 51 idle ticks, 51 kernel ticks, 19 user ticks
 hda2 (filesys): 119 reads, 230 writes
 hda3 (scratch): 94 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes
-Console: 1258 characters output
+Console: 1259 characters output
 Keyboard: 0 keys pressed
 Exception: 6 page faults
 Powering off...

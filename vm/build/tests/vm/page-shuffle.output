@@ -1,12 +1,12 @@
 Copying tests/vm/page-shuffle to scratch partition...
-qemu -hda /tmp/yzzXL_qZh0.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/ITTtB6Cf4I.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading............
 Kernel command line: -q -f extract run page-shuffle
 Pintos booting with 4,088 kB RAM...
 382 pages available in kernel pool.
 382 pages available in user pool.
-Calibrating timer...  157,081,600 loops/s.
+Calibrating timer...  104,755,200 loops/s.
 hda: 13,104 sectors (6 MB), model "QM00001", serial "QEMU HARDDISK"
 hda1: 194 sectors (97 kB), Pintos OS kernel (20)
 hda2: 4,096 sectors (2 MB), Pintos file system (21)
@@ -36,8 +36,8 @@ Executing 'page-shuffle':
 (page-shuffle) end
 page-shuffle: exit(0)
 Execution of 'page-shuffle' complete.
-Timer: 141 ticks
-Thread: 34 idle ticks, 36 kernel ticks, 71 user ticks
+Timer: 138 ticks
+Thread: 40 idle ticks, 30 kernel ticks, 68 user ticks
 hda2 (filesys): 61 reads, 206 writes
 hda3 (scratch): 100 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes

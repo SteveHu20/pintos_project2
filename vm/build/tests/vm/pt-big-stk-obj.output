@@ -1,5 +1,5 @@
 Copying tests/vm/pt-big-stk-obj to scratch partition...
-qemu -hda /tmp/PDSkoBzsOD.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/7PF7z_AVyY.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading............
 Kernel command line: -q -f extract run pt-big-stk-obj
@@ -26,12 +26,12 @@ Executing 'pt-big-stk-obj':
 (pt-big-stk-obj) end
 pt-big-stk-obj: exit(0)
 Execution of 'pt-big-stk-obj' complete.
-Timer: 109 ticks
-Thread: 54 idle ticks, 49 kernel ticks, 6 user ticks
+Timer: 82 ticks
+Thread: 38 idle ticks, 40 kernel ticks, 4 user ticks
 hda2 (filesys): 59 reads, 206 writes
 hda3 (scratch): 100 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes
-Console: 1051 characters output
+Console: 1050 characters output
 Keyboard: 0 keys pressed
 Exception: 20 page faults
 Powering off...

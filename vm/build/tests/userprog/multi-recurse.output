@@ -1,12 +1,12 @@
 Copying tests/userprog/multi-recurse to scratch partition...
-qemu -hda /tmp/WZbSxcRAd7.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/w9cCH8w53i.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading............
 Kernel command line: -q -f extract run 'multi-recurse 15'
 Pintos booting with 4,088 kB RAM...
 382 pages available in kernel pool.
 382 pages available in user pool.
-Calibrating timer...  91,648,000 loops/s.
+Calibrating timer...  104,755,200 loops/s.
 hda: 13,104 sectors (6 MB), model "QM00001", serial "QEMU HARDDISK"
 hda1: 194 sectors (97 kB), Pintos OS kernel (20)
 hda2: 4,096 sectors (2 MB), Pintos file system (21)
@@ -23,149 +23,3 @@ Erasing ustar archive...
 Executing 'multi-recurse 15':
 (multi-recurse) begin 15
 (multi-recurse) exec("multi-recurse 14")
-(multi-recurse) begin 14
-(multi-recurse) exec("multi-recurse 13")
-(multi-recurse) begin 13
-(multi-recurse) exec("multi-recurse 12")
-(multi-recurse) begin 12
-(multi-recurse) exec("multi-recurse 11")
-(multi-recurse) begin 11
-(multi-recurse) exec("multi-recurse 10")
-(multi-recurse) begin 10
-(multi-recurse) exec("multi-recurse 9")
-(multi-recurse) begin 9
-(multi-recurse) exec("multi-recurse 8")
-(multi-recurse) begin 8
-(multi-recurse) exec("multi-recurse 7")
-(multi-recurse) begin 7
-(multi-recurse) exec("multi-recurse 6")
-(multi-recurse) begin 6
-(multi-recurse) exec("multi-recurse 5")
-(multi-recurse) begin 5
-(multi-recurse) exec("multi-recurse 4")
-(multi-recurse) begin 4
-(multi-recurse) exec("multi-recurse 3")
-(multi-recurse) begin 3
-(multi-recurse) exec("multi-recurse 2")
-(multi-recurse) begin 2
-(multi-recurse) exec("multi-recurse 1")
-(multi-recurse) begin 1
-(multi-recurse) exec("multi-recurse 0")
-(multi-recurse) begin 0
-(multi-recurse) end 0
-multi-recurse: exit(0)
-multi-recurse: dying due to interrupt 0x03 (#BP Breakpoint Exception).
-Interrupt 0x03 (#BP Breakpoint Exception) at eip=0x804a7ed
- cr2=0804ad89 error=00000000
- eax=00000000 ebx=00000001 ecx=00000028 edx=00000001
- esi=bfffff20 edi=00000000 esp=bfffff04 ebp=bfffffb4
- cs=001b ds=0023 es=0023 ss=0023
-multi-recurse: exit(-1)
-multi-recurse: dying due to interrupt 0x03 (#BP Breakpoint Exception).
-Interrupt 0x03 (#BP Breakpoint Exception) at eip=0x804a7ed
- cr2=0804ad89 error=00000000
- eax=ffffffff ebx=00000002 ecx=00000028 edx=00000001
- esi=bfffff20 edi=00000001 esp=bfffff04 ebp=bfffffb4
- cs=001b ds=0023 es=0023 ss=0023
-multi-recurse: exit(-1)
-multi-recurse: dying due to interrupt 0x03 (#BP Breakpoint Exception).
-Interrupt 0x03 (#BP Breakpoint Exception) at eip=0x804a7ed
- cr2=0804ad89 error=00000000
- eax=ffffffff ebx=00000003 ecx=00000028 edx=00000001
- esi=bfffff20 edi=00000002 esp=bfffff04 ebp=bfffffb4
- cs=001b ds=0023 es=0023 ss=0023
-multi-recurse: exit(-1)
-multi-recurse: dying due to interrupt 0x03 (#BP Breakpoint Exception).
-Interrupt 0x03 (#BP Breakpoint Exception) at eip=0x804a7ed
- cr2=0804ad89 error=00000000
- eax=ffffffff ebx=00000004 ecx=00000028 edx=00000001
- esi=bfffff20 edi=00000003 esp=bfffff04 ebp=bfffffb4
- cs=001b ds=0023 es=0023 ss=0023
-multi-recurse: exit(-1)
-multi-recurse: dying due to interrupt 0x03 (#BP Breakpoint Exception).
-Interrupt 0x03 (#BP Breakpoint Exception) at eip=0x804a7ed
- cr2=0804ad89 error=00000000
- eax=ffffffff ebx=00000005 ecx=00000028 edx=00000001
- esi=bfffff20 edi=00000004 esp=bfffff04 ebp=bfffffb4
- cs=001b ds=0023 es=0023 ss=0023
-multi-recurse: exit(-1)
-multi-recurse: dying due to interrupt 0x03 (#BP Breakpoint Exception).
-Interrupt 0x03 (#BP Breakpoint Exception) at eip=0x804a7ed
- cr2=0804ad89 error=00000000
- eax=ffffffff ebx=00000006 ecx=00000028 edx=00000001
- esi=bfffff20 edi=00000005 esp=bfffff04 ebp=bfffffb4
- cs=001b ds=0023 es=0023 ss=0023
-multi-recurse: exit(-1)
-multi-recurse: dying due to interrupt 0x03 (#BP Breakpoint Exception).
-Interrupt 0x03 (#BP Breakpoint Exception) at eip=0x804a7ed
- cr2=0804ad89 error=00000000
- eax=ffffffff ebx=00000007 ecx=00000028 edx=00000001
- esi=bfffff20 edi=00000006 esp=bfffff04 ebp=bfffffb4
- cs=001b ds=0023 es=0023 ss=0023
-multi-recurse: exit(-1)
-multi-recurse: dying due to interrupt 0x03 (#BP Breakpoint Exception).
-Interrupt 0x03 (#BP Breakpoint Exception) at eip=0x804a7ed
- cr2=0804ad89 error=00000000
- eax=ffffffff ebx=00000008 ecx=00000028 edx=00000001
- esi=bfffff20 edi=00000007 esp=bfffff04 ebp=bfffffb4
- cs=001b ds=0023 es=0023 ss=0023
-multi-recurse: exit(-1)
-multi-recurse: dying due to interrupt 0x03 (#BP Breakpoint Exception).
-Interrupt 0x03 (#BP Breakpoint Exception) at eip=0x804a7ed
- cr2=0804ad89 error=00000000
- eax=ffffffff ebx=00000009 ecx=00000028 edx=00000001
- esi=bfffff20 edi=00000008 esp=bfffff04 ebp=bfffffb4
- cs=001b ds=0023 es=0023 ss=0023
-multi-recurse: exit(-1)
-multi-recurse: dying due to interrupt 0x03 (#BP Breakpoint Exception).
-Interrupt 0x03 (#BP Breakpoint Exception) at eip=0x804a7ed
- cr2=0804ad89 error=00000000
- eax=ffffffff ebx=0000000a ecx=00000028 edx=00000001
- esi=bfffff20 edi=00000009 esp=bfffff04 ebp=bfffffb0
- cs=001b ds=0023 es=0023 ss=0023
-multi-recurse: exit(-1)
-multi-recurse: dying due to interrupt 0x03 (#BP Breakpoint Exception).
-Interrupt 0x03 (#BP Breakpoint Exception) at eip=0x804a7ed
- cr2=0804ad89 error=00000000
- eax=ffffffff ebx=0000000b ecx=00000029 edx=00000001
- esi=bfffff20 edi=0000000a esp=bfffff04 ebp=bfffffb0
- cs=001b ds=0023 es=0023 ss=0023
-multi-recurse: exit(-1)
-multi-recurse: dying due to interrupt 0x03 (#BP Breakpoint Exception).
-Interrupt 0x03 (#BP Breakpoint Exception) at eip=0x804a7ed
- cr2=0804ad89 error=00000000
- eax=ffffffff ebx=0000000c ecx=00000029 edx=00000001
- esi=bfffff20 edi=0000000b esp=bfffff04 ebp=bfffffb0
- cs=001b ds=0023 es=0023 ss=0023
-multi-recurse: exit(-1)
-multi-recurse: dying due to interrupt 0x03 (#BP Breakpoint Exception).
-Interrupt 0x03 (#BP Breakpoint Exception) at eip=0x804a7ed
- cr2=0804ad89 error=00000000
- eax=ffffffff ebx=0000000d ecx=00000029 edx=00000001
- esi=bfffff20 edi=0000000c esp=bfffff04 ebp=bfffffb0
- cs=001b ds=0023 es=0023 ss=0023
-multi-recurse: exit(-1)
-multi-recurse: dying due to interrupt 0x03 (#BP Breakpoint Exception).
-Interrupt 0x03 (#BP Breakpoint Exception) at eip=0x804a7ed
- cr2=0804ad89 error=00000000
- eax=ffffffff ebx=0000000e ecx=00000029 edx=00000001
- esi=bfffff20 edi=0000000d esp=bfffff04 ebp=bfffffb0
- cs=001b ds=0023 es=0023 ss=0023
-multi-recurse: exit(-1)
-multi-recurse: dying due to interrupt 0x03 (#BP Breakpoint Exception).
-Interrupt 0x03 (#BP Breakpoint Exception) at eip=0x804a7ed
- cr2=0804ad89 error=00000000
- eax=ffffffff ebx=0000000f ecx=00000029 edx=00000001
- esi=bfffff20 edi=0000000e esp=bfffff04 ebp=bfffffb0
- cs=001b ds=0023 es=0023 ss=0023
-multi-recurse: exit(-1)
-Execution of 'multi-recurse 15' complete.
-Timer: 276 ticks
-Thread: 123 idle ticks, 52 kernel ticks, 101 user ticks
-hda2 (filesys): 539 reads, 208 writes
-hda3 (scratch): 101 reads, 2 writes
-hda4 (swap): 0 reads, 0 writes
-Console: 6828 characters output
-Keyboard: 0 keys pressed
-Exception: 64 page faults
-Powering off...

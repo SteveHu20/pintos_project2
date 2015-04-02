@@ -1,5 +1,5 @@
 Copying tests/vm/pt-grow-pusha to scratch partition...
-qemu -hda /tmp/MSOxXeu3Un.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/Ip28vTGzQ0.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading............
 Kernel command line: -q -f extract run pt-grow-pusha
@@ -25,12 +25,12 @@ Executing 'pt-grow-pusha':
 (pt-grow-pusha) end
 pt-grow-pusha: exit(0)
 Execution of 'pt-grow-pusha' complete.
-Timer: 104 ticks
-Thread: 57 idle ticks, 42 kernel ticks, 5 user ticks
+Timer: 78 ticks
+Thread: 32 idle ticks, 41 kernel ticks, 5 user ticks
 hda2 (filesys): 63 reads, 186 writes
 hda3 (scratch): 90 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes
-Console: 1007 characters output
+Console: 1006 characters output
 Keyboard: 0 keys pressed
 Exception: 6 page faults
 Powering off...

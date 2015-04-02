@@ -10,4 +10,4 @@ userprog/process.o: ../../userprog/process.c ../../userprog/process.h \
  ../../filesys/file.h ../../filesys/off_t.h ../../filesys/filesys.h \
  ../../threads/flags.h ../../threads/init.h ../../threads/interrupt.h \
  ../../threads/palloc.h ../../threads/vaddr.h ../../vm/page.h \
- ../../vm/frame.h
+ ../../vm/frame.h ../../filesys/inode.h

@@ -1,13 +1,13 @@
 Copying tests/userprog/wait-twice to scratch partition...
 Copying tests/userprog/child-simple to scratch partition...
-qemu -hda /tmp/UQzZ6L8Ynv.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/ZATnWch53t.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading............
 Kernel command line: -q -f extract run wait-twice
 Pintos booting with 4,088 kB RAM...
 382 pages available in kernel pool.
 382 pages available in user pool.
-Calibrating timer...  104,755,200 loops/s.
+Calibrating timer...  155,648,000 loops/s.
 hda: 13,104 sectors (6 MB), model "QM00001", serial "QEMU HARDDISK"
 hda1: 194 sectors (97 kB), Pintos OS kernel (20)
 hda2: 4,096 sectors (2 MB), Pintos file system (21)
@@ -31,12 +31,12 @@ child-simple: exit(81)
 (wait-twice) end
 wait-twice: exit(0)
 Execution of 'wait-twice' complete.
-Timer: 104 ticks
-Thread: 56 idle ticks, 44 kernel ticks, 4 user ticks
+Timer: 89 ticks
+Thread: 42 idle ticks, 42 kernel ticks, 5 user ticks
 hda2 (filesys): 126 reads, 368 writes
 hda3 (scratch): 180 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes
-Console: 1140 characters output
+Console: 1139 characters output
 Keyboard: 0 keys pressed
 Exception: 9 page faults
 Powering off...

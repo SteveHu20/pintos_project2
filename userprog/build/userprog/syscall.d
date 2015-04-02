@@ -7,4 +7,5 @@ userprog/syscall.o: ../../userprog/syscall.c ../../userprog/syscall.h \
  ../../lib/kernel/list.h ../../threads/synch.h ../../threads/vaddr.h \
  ../../threads/loader.h ../../filesys/file.h ../../filesys/off_t.h \
  ../../filesys/filesys.h ../../filesys/inode.h ../../devices/block.h \
- ../../lib/inttypes.h ../../userprog/pagedir.h ../../userprog/process.h
+ ../../lib/inttypes.h ../../userprog/pagedir.h ../../userprog/process.h \
+ ../../vm/page.h ../../vm/frame.h ../../threads/palloc.h

@@ -1,2 +1,2 @@
 FAIL
-run: wait for child 1: FAILED
+Run didn't shut down properly: no "Timer: # ticks" message

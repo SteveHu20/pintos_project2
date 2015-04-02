@@ -8,6 +8,12 @@
 #include "vm/frame.h"
 #include "vm/page.h"
 
+void *
+lookup_frame (off_t block_id);
+
+struct frame_entry *
+find_frame_entry (void *frame);
+
 /*
  * Initialize the frame table, This frame table 
  * in essence is a list, so we need to initialize this list
@@ -32,12 +38,21 @@ frame_alloc (enum palloc_flags flags, struct sup_page_entry *spte)
  	return NULL;	
      }
      
-     void *frame = palloc_get_page (flags);
+      
+      void *frame =  NULL;
+      
+//     if (find_frame_entry (lookup_frame (spte->block_id)) != NULL){
+//           frame = find_frame_entry (lookup_frame (spte->block_id));
+//	   return frame;
+//     }
+      
+     frame = palloc_get_page (flags); 
      //if it's valid frame, add it to frame table, which are used to 
      //keep track all the frame activity
      if (frame)
        {
-	   frame_add_to_table (frame, spte);
+            frame_add_to_table (frame, spte);
+           
        }
      else
 	{
@@ -66,13 +81,18 @@ frame_free (void *frame)
    lock_acquire (&frame_table_lock);
    for (e = list_begin (&frame_table); e != list_end (&frame_table); e = list_next(e))
     {
-       struct frame_entry *fte = list_entry  (e, struct frame_entry, elem);
- 	if (fte->frame == frame)
+       struct frame_entry *fe = list_entry  (e, struct frame_entry, elem);
+ 	if (fe->frame == frame)
 	{
-		list_remove (e);
-		free (fte);
+                
+               
+//             if (list_size (&fe->page_list) < 2)
+//             {   
+        	list_remove (e);
+        	free (fe);
 		palloc_free_page (frame);
 		break;
+//     	     }
 	}
     }
    lock_release (&frame_table_lock);
@@ -92,8 +112,16 @@ frame_add_to_table (void *frame, struct sup_page_entry *spte)
     lock_acquire (&frame_table_lock);
     list_push_back (&frame_table, &fte->elem);
     list_init (&fte->page_list);
+//    list_push_back (&fte->page_list, &spte->sup_elem);
     lock_release (&frame_table_lock);
 } 
+
+void
+frame_add_page_to_table (void *frame, struct sup_page_entry *spte)
+{
+
+
+}
 
 void *
 frame_evict (enum palloc_flags flags)
@@ -154,35 +182,42 @@ frame_evict (enum palloc_flags flags)
 void *
 lookup_frame (off_t block_id)
 {
+     if (block_id == -1) return NULL;
      void *frame = NULL;
-     lock_acquire (&frame_table_lock);
+//     lock_acquire (&frame_table_lock);
      struct list_elem *e = list_begin (&frame_table);
      for ( e = list_begin (&frame_table); e != list_end (&frame_table); e = list_next (e)){
            struct frame_entry *ft = list_entry (e, struct frame_entry, elem);
-	   if (ft->spte->type == FILE && ft->spte->block_id == block_id)
- 	   {
- 		frame = ft->frame;
-   	        break;	
-           } 
-
+//           struct list_elem *ele = list_begin (&ft->page_list);
+//           for (ele = list_begin(&ft->page_list); ele != list_end (&ft->page_list); ele = list_next (ele))
+//	   {
+//               struct sup_page_entry *spte = list_entry (ele, struct sup_page_entry, sup_elem);
+                if (ft->spte->type == FILE && ft-> spte->block_id == block_id)
+ 	        {
+ 		     frame = ft->frame;
+//   	             lock_release (&frame_table_lock);
+		     return frame;
+                }
+//           } 
      }     
-     lock_release (&frame_table_lock);
+//     lock_release (&frame_table_lock);
      return frame;
 }
 
 struct frame_entry *
 find_frame_entry (void *frame)
 {
-   lock_acquire (&frame_table_lock);
+    if (frame == NULL) return NULL;
+   // lock_acquire (&frame_table_lock);
    struct list_elem *e = list_begin (&frame_table);
    for (e = list_begin (&frame_table); e != list_end (&frame_table); e = list_next (e)){
        struct frame_entry *fe = list_entry (e, struct frame_entry, elem);
        if ( fe -> frame == frame){
-              lock_release (&frame_table_lock);
+  //            lock_release (&frame_table_lock);
               return fe;
        }
    }
-   lock_release (&frame_table_lock);
+ //  lock_release (&frame_table_lock);
    return NULL;
 }
 
@@ -200,4 +235,4 @@ add_page_entry_to_frame(struct sup_page_entry *spte, void *frame)
     list_push_back (&fe->page_list, &spte->sup_elem);
     lock_release (&frame_table_lock);
 }
-  
+

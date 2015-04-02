@@ -1,13 +1,13 @@
 Copying tests/userprog/read-zero to scratch partition...
 Copying ../../tests/userprog/sample.txt to scratch partition...
-qemu -hda /tmp/L_8VYxQw2W.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/xt84iHB9xa.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading............
 Kernel command line: -q -f extract run read-zero
 Pintos booting with 4,088 kB RAM...
 382 pages available in kernel pool.
 382 pages available in user pool.
-Calibrating timer...  150,937,600 loops/s.
+Calibrating timer...  156,467,200 loops/s.
 hda: 13,104 sectors (6 MB), model "QM00001", serial "QEMU HARDDISK"
 hda1: 194 sectors (97 kB), Pintos OS kernel (20)
 hda2: 4,096 sectors (2 MB), Pintos file system (21)
@@ -29,7 +29,7 @@ Executing 'read-zero':
 read-zero: exit(0)
 Execution of 'read-zero' complete.
 Timer: 81 ticks
-Thread: 37 idle ticks, 39 kernel ticks, 5 user ticks
+Thread: 43 idle ticks, 36 kernel ticks, 3 user ticks
 hda2 (filesys): 94 reads, 194 writes
 hda3 (scratch): 93 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes

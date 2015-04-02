@@ -107,10 +107,18 @@ load_file (struct sup_page_entry *spte)
     }
   lock_acquire (&file_lock);
   if (spte->block_id != -1){
-  	frame = lookup_frame(spte->block_id);     
+  	frame = lookup_frame(spte->block_id);        
   }
   lock_release (&file_lock);  
-
+  if (frame != NULL) {
+   //    if (!install_page(spte->uva, frame, spte->writable))
+   //    {
+   //       frame_free(frame);
+   //       return false;
+   //    }
+//      spte->is_loaded = true;
+      return true;
+   }
   if(frame == NULL){
   	frame = frame_alloc(flags, spte);
   }

@@ -1,12 +1,12 @@
 Copying tests/userprog/exit to scratch partition...
-qemu -hda /tmp/7CDQpYoWc5.dsk -m 4 -net none -nographic -monitor null
+qemu -hda /tmp/GF4Vf5EKuh.dsk -m 4 -net none -nographic -monitor null
 PiLo hda1
 Loading............
 Kernel command line: -q -f extract run exit
 Pintos booting with 4,088 kB RAM...
 382 pages available in kernel pool.
 382 pages available in user pool.
-Calibrating timer...  101,478,400 loops/s.
+Calibrating timer...  154,009,600 loops/s.
 hda: 13,104 sectors (6 MB), model "QM00001", serial "QEMU HARDDISK"
 hda1: 194 sectors (97 kB), Pintos OS kernel (20)
 hda2: 4,096 sectors (2 MB), Pintos file system (21)
@@ -24,8 +24,8 @@ Executing 'exit':
 (exit) begin
 exit: exit(57)
 Execution of 'exit' complete.
-Timer: 89 ticks
-Thread: 48 idle ticks, 37 kernel ticks, 4 user ticks
+Timer: 74 ticks
+Thread: 40 idle ticks, 32 kernel ticks, 2 user ticks
 hda2 (filesys): 63 reads, 186 writes
 hda3 (scratch): 90 reads, 2 writes
 hda4 (swap): 0 reads, 0 writes
